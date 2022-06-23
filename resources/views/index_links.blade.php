@@ -10,31 +10,29 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Special+Elite&display=swap" rel="stylesheet">  
 
-        <title>JJ's Portfolio - Update / Delete</title>
+        <title>JJ's Portfolio - Delete</title>
     </head>
 
     <body>
         <div class="top_left_container">
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
-        <h1>UPDATE / DELETE</h1>
+        <h1>DELETE</h1>
         <fieldset>
-            <h2>Update / Delete an image</h2>
+            <h2>Delete a link</h2>
             <fieldset class="flex">
                 @foreach ($images as $image)
                     <fieldset class="flex_children">
-                        <div>
-                            <img  src="{{ $image->path }}" id="{{ $image->id }}" class="image"/>
-                        </div>
-                        </br>
-                        <div class="flex">
-                            <a href="{{ route('images.edit', ['id' => $image->id]) }}" alt="">Edit</a>
-                            <a href="{{ route('images.destroy', ['id' => $image->id]) }}" alt="">Delete</a>
-                        </div>
+                        <img  src="{{ $image->path }}" id="{{ $image->id_image }}" class="image"/>
+                        <p>Link.s :</p>
+                        @foreach ($links as $link)
+                            @if ($link->id_image == $image->id)
+                                <p>{{ $link->label}} <a href="{{ route('links.destroy', ['id' => $link->id]) }}" alt="">Delete</a> </p>
+                            @endif
+                        @endforeach
                     </fieldset>
                 @endforeach
             </fieldset>
-            </br>
         </fieldset>
     </body>
 

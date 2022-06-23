@@ -56,7 +56,7 @@
                     <label for="type">Type :<label>
                     @foreach ($types as $type)
                         <input type="radio" name="id_type" value="{{$type->id}}" checked="{{ $type->id == $image->id_type }}">
-                        <label for="{{$type->name}}">{{$type->name}}     </label>
+                        <label for="{{$type->name}}">{{$type->name}}</label>
                     @endforeach 
                     </br></br>
                 </fieldset>

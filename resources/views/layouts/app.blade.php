@@ -47,12 +47,10 @@
                     <div class="alert alert-succes">
                         <h1>{{ session('succes') }}</h1>
                     </div>
+                @else
+                    <h1>Hi {{ Auth::user()->name }} !</h1>
                 @endif
-                </br>
-                <fieldset>
-                <h2>Hi {{ Auth::user()->name }} ! Something to add ?</h2>
-                </br></br>
-                
+
                 <!-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }} </a> -->
             @endguest

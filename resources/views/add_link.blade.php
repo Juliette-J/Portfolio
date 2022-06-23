@@ -24,31 +24,32 @@
             @csrf
             <fieldset>
                 </br>
-                <label for="image_path">Image path :<label>
+                <label for="image_path">Choose an image :<label>
                 </br></br>
-                <fieldset>
-                    <ul>
-                        @foreach ($images as $image)
-                            <input type="radio" name="image_id" value="{{$image->id}}">
-                            <label for="{{$image->title}}">{{$image->title}}, {{$image->path}}</label>
-                            </br>
-                        @endforeach
-                    </ul>
-                </fieldset>
+                @foreach ($images as $image)
+                    <fieldset>
+                        </br>
+                        <input type="radio" name="image_id" value="{{$image->id}}">
+                        <label for="{{$image->title}}">{{$image->title}}</label>
+                        </br>
+                        <img  src="{{ $image->path }}" id="{{ $image->id }}" class="image"/>
+                    </fieldset>
+                    </br>  
+                @endforeach
                 </br></br>
-                <label for="imagehash_ref">Reference :<label>
+                <label for="image_hash_ref">Choose a reference :<label>
                 </br></br>
                 <fieldset>
                     <ul>
                         @foreach ($hashtags as $hashtag)
                             <input type="radio" name="hash_id" value="{{$hashtag->id}}"> 
                             <label for="{{$hashtag->label}}">{{$hashtag->label}}</label>
-                            </br>
+                            </br></br>
                         @endforeach
                     </ul>
                 </fieldset>
                 </br>
-                <input type="submit" value="Send">
+                <input type="submit" value="Link">
                 </br></br>
             </fieldset>
         </form>

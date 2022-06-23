@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Image;
 use App\Models\Type;
 use App\Http\Requests\ImageRequest;
+use App\Models\LinkImageHashs;
 use Illuminate\Support\Facades\DB;
 
 class ImageController extends Controller
@@ -28,13 +29,12 @@ class ImageController extends Controller
     }
 
     public function index() {
-        $images = DB::table('images')->get();
+        $images = Image::get();
         return view('index_images', ['images' => $images]);
     }
 
     public function edit($id) {
-        $image_query = Image::select('images.*')->where('images.id', $id)->get();
-        $image=$image_query[0];
+        $image = Image::find($id);
         $types = Type::get();
         //dd($image);
         return view('edit_image', [
@@ -55,6 +55,7 @@ class ImageController extends Controller
     }
 
     public function destroy($id) {
+        LinkImageHashs::where('image_hashs.id_image', $id)->delete();
         if(Image::find($id)->delete()) {
             return redirect()->route('home.admin')->with('succes', 'Success !');
             //return view('home');

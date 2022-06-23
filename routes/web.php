@@ -37,26 +37,27 @@ Route::group(['prefix' => 'admin/images'],function(){
     Route::post('/{id}/edit', [ImageController::class, 'update'])->name('images.update'); // Envoi du formulaire
 
     /* DELETE IMAGE */
-    Route::get('/{id}/delete', [ImageController::class, "destroy"])->name('images.destroy');
+    Route::get('/{id}/delete', [ImageController::class, 'destroy'])->name('images.destroy');
 });
 
 Route::group(['prefix' => 'admin/hashs'],function(){
     /* ADD HASH */
     Route::get('/create',[HashtagController::class, 'create'])->name('hashs.create');
-    Route::post('/', [HashtagController::class, "store"])->name('hashs.store');
+    Route::post('/', [HashtagController::class, 'store'])->name('hashs.store');
 
     /* DELETE HASH */
     Route::get('/', [HashtagController::class, 'index'])->name('hashs.list'); // Listing des hashtags
-    Route::get('/{id}/delete', [HashtagController::class, "destroy"])->name('hashs.destroy');
+    Route::get('/{id}/delete', [HashtagController::class, 'destroy'])->name('hashs.destroy');
 });
 
 Route::group(['prefix' => 'admin/links'],function(){
     /* ADD LINK */
     Route::get('/create',[LinkImageHashsController::class, 'create'])->name('links.create');
-    Route::post('/', [LinkImageHashsController::class, "store"])->name('links.store');
+    Route::post('/', [LinkImageHashsController::class, 'store'])->name('links.store');
 
-    /* DELETE LINK 
-    Route::get('/{id}/delete', [LinkImageHashsController::class, "destroy"])->name('links.destroy');*/
+    /* DELETE LINK */
+    Route::get('/', [LinkImageHashsController::class, 'index'])->name('links.list'); // Listing des links
+    Route::get('/{id}/delete', [LinkImageHashsController::class, 'destroy'])->name('links.destroy');
 });
 
 /**

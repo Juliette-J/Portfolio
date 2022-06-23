@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Hashtag;
 use App\Http\Requests\HashtagRequest;
 use App\Models\Image;
+use App\Models\LinkImageHashs;
 use Illuminate\Support\Facades\DB;
 
 class HashtagController extends Controller
@@ -45,6 +46,7 @@ class HashtagController extends Controller
     }
 
     public function destroy($id) {
+        LinkImageHashs::where('image_hashs.id_hashtag', $id)->delete();
         if(Hashtag::find($id)->delete()) {
             return redirect()->route('home.admin')->with('succes', 'Success !');
             //return view('home');
