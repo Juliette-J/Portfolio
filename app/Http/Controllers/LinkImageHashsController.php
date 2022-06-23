@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class LinkImageHashsController extends Controller
 {
-    public function index() {
+    public function create() {
         $images = DB::table('images')->get();
         $hashtags = DB::table('hashtags')->get();
         return view('add_link', ['images' => $images, 'hashtags' => $hashtags]);

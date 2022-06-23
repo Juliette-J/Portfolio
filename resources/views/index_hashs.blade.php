@@ -10,31 +10,31 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Special+Elite&display=swap" rel="stylesheet">  
 
-        <title>JJ's Portfolio - Update / Delete</title>
+        <title>JJ's Portfolio - Delete</title>
     </head>
 
     <body>
         <div class="top_left_container">
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
-        <h1>UPDATE / DELETE</h1>
+        <h1>DELETE</h1>
         <fieldset>
-            <h2>Update / Delete an image</h2>
-            <fieldset>
-                <div class="images">
-                    @foreach ($images as $image)
+            <h2>Delete a hashtag</h2>
+            @foreach ($hashtags as $hashtag)
+                <fieldset>
+                        <h3> <a href="{{ route('hashs.destroy', ['id' => $hashtag->id]) }}" alt="">Delete</a> {{ $hashtag->label}} </h3>
+                        <p>Linked images :</p>
                         <div>
-                            <div class="miniature">
-                                <img  src="{{ $image->path }}" id="{{ $image->id }}" class="image"/>
-                            </div>
-                            </br>
-                            <a href="{{ route('images.edit', ['id' => $image->id]) }}" alt="">Edit</a>
-                            <a href="{{ route('images.destroy', ['id' => $image->id]) }}" alt="">Delete</a>
-                            </br></br></br>
+                        @foreach ($images as $image)
+                            @if ($image->id == $hashtag->id)
+                                <img  src="{{ $image->path }}" id="{{ $image->id_image }}" class="image"/>
+                            @endif
+                        @endforeach
                         </div>
-                    @endforeach
-                </div>
-            </fieldset>
+                        </br>
+                </fieldset>
+                </br></br>
+            @endforeach
             </br>
         </fieldset>
     </body>

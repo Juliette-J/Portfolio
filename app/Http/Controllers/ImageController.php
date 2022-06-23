@@ -55,9 +55,9 @@ class ImageController extends Controller
     }
 
     public function destroy($id) {
-        if(Image::where('images.id',$id)->delete()) {
-            //return redirect()->route('home.admin')->with('succes', 'Success !');
-            return view('home');
+        if(Image::find($id)->delete()) {
+            return redirect()->route('home.admin')->with('succes', 'Success !');
+            //return view('home');
         }
     }
 }

@@ -5,11 +5,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Hashtag;
 use App\Http\Requests\HashtagRequest;
+use App\Models\Image;
 use Illuminate\Support\Facades\DB;
 
 class HashtagController extends Controller
 {
-    public function index() {
+    public function create() {
         $hashtags = DB::table('hashtags')->get();
         return view('add_hash', ['hashtags' => $hashtags]);
     }
@@ -23,6 +24,16 @@ class HashtagController extends Controller
         }
     }
 
+    public function index() {
+        $hashtags = Hashtag::get(); //join('image_hashs', 'hashtags.id', 'image_hashs.id_hashtag')->join('images', 'image_hashs.id_image', 'images.id')->orderBy('hashtags.label')->get();
+        $images = Image::join('image_hashs', 'images.id', 'image_hashs.id_image')->join('hashtags', 'image_hashs.id_hashtag', 'hashtags.id')->get();
+        //dd($hashtags);
+        return view('index_hashs', [
+            'hashtags' => $hashtags,
+            'images' => $images
+        ]);
+    }
+
     public function update(HashtagRequest $request, Hashtag $hashtags) {
         if($hashtags->fill($request->all())->save()) {
             return view('home');
@@ -33,9 +44,10 @@ class HashtagController extends Controller
         return $hash;
     }
 
-    public function destroy(Hashtag $hash) {
-        if($hash->delete()) {
-            return true;
+    public function destroy($id) {
+        if(Hashtag::find($id)->delete()) {
+            return redirect()->route('home.admin')->with('succes', 'Success !');
+            //return view('home');
         }
     }
 }

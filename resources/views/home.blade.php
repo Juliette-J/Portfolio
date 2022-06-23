@@ -15,7 +15,8 @@
             <h2>Or to update ? Delete ?</h2>
             </br></br>
             <nav>
-                <a href="{{ route('images.list') }}" alt="">Update / Delete</a>
+                <a href="{{ route('images.list') }}" alt="">Update / Delete an image</a>
+                <a href="{{ route('hashs.list') }}" alt="">Delete a hashtag</a>
             </nav>
             </br></br>
         </fieldset>
