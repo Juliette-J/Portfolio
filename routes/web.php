@@ -52,8 +52,9 @@ Route::group(['prefix' => 'admin/hashs'],function(){
 
 Route::group(['prefix' => 'admin/links'],function(){
     /* ADD LINK */
-    Route::get('/create',[LinkImageHashsController::class, 'create'])->name('links.create');
     Route::post('/', [LinkImageHashsController::class, 'store'])->name('links.store');
+    Route::get('/create',[LinkImageHashsController::class, 'create'])->name('links.create');
+   
 
     /* DELETE LINK */
     Route::get('/', [LinkImageHashsController::class, 'index'])->name('links.list'); // Listing des links

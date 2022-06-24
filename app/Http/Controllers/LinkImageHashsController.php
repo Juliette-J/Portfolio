@@ -23,9 +23,10 @@ class LinkImageHashsController extends Controller
         $link->id_hashtag = $request->input('hash_id');
         dd($link);
         if($link->save()) {
-            //return view('home');
-            return redirect()->route('home.admin')->with('succes', 'Success !');
+            return view('home');
+            //return redirect()->route('home.admin')->with('succes', 'Success !');
         }
+        return redirect()->route('home.admin')->with('error', 'Error...');
     }
 
     public function index() {
