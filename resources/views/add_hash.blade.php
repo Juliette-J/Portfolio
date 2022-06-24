@@ -28,7 +28,13 @@
                     <label for="label">Label :<label>
                     </br>
                     <input type="text" name="label">
-                    </br></br>
+                    </br>
+                    
+                    @error('label')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    
+                    </br>
                     <input type="submit" value="Send">
                     </br></br>
                 </fieldset>

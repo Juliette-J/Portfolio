@@ -40,25 +40,55 @@
                     <label for="title">Title :<label>
                     </br>
                     <input type="text" name="title" value="{{$image->title}}">
-                    </br></br>
+                    </br>
+
+                    @error('title')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
+                    </br>
                     <label for="path">Path :<label>
                     </br>
                     <input type="text" name="path" value="{{$image->path}}">
-                    </br></br>
+                    </br>
+
+                    @error('path')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
+                    </br>
                     <label for="date">Date :<label>
                     </br>
                     <input type="date" name="date" value="{{$image->date}}">
-                    </br></br>
+                    </br>
+
+                    @error('date')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
+                    </br>
                     <label for="description">Description :<label>
                     </br>
                     <textarea name="desc">{{$image->desc}}</textarea>
-                    </br></br>
+                    </br>
+
+                    @error('description')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
+                    </br>
                     <label for="type">Type :<label>
                     @foreach ($types as $type)
                         <input type="radio" name="id_type" value="{{$type->id}}" checked="{{ $type->id == $image->id_type }}">
                         <label for="{{$type->name}}">{{$type->name}}</label>
                     @endforeach 
-                    </br></br>
+                    </br>
+
+                    @error('type')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                    
+                    </br>
                 </fieldset>
                 </br>
                 <input type="submit" value="Send">

@@ -43,7 +43,7 @@ class ImageRequest extends FormRequest
     {
         return [
             'title' => 'string',
-            'path' => 'required|string',
+            'path' => 'required|string|unique:images,path,'.($this->id ?? 'NULL').',id',
             'date' => 'required|date',
             'desc' => 'required|string',
             'id_type' => 'required|integer|exists:types,id'
