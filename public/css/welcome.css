@@ -1,0 +1,275 @@
+body {
+  background-color: #f1f1f1;
+}
+
+h1 {
+  font-family: 'Special Elite', cursive;
+  font-weight: bold;
+  text-align: center;
+  font-size: 70px; /* 4vw */
+}
+
+h2 {
+  font-family: 'Pangolin', cursive;
+  text-align: center;
+  font-size: 35px; /* 1.5vw */
+}
+
+h3{
+  font-family: 'Pangolin', cursive;
+  font-size: 20px;
+}
+
+label {
+  font-family: 'Special Elite', cursive;
+  text-align: center;
+  font-size: 18px;
+}
+
+p {
+  text-align: center;
+  font-family: 'Pangolin', cursive;
+  font-size: 20px; /* 1.5vw */
+}
+
+.fr {
+  color:rgba(63, 63, 63, 0.6);
+}
+
+fieldset {
+  border :rgb(29, 29, 29);
+  box-shadow: 0px 0px 10px rgb(172, 172, 172);
+  background-color: rgb(248, 248, 248);
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 15px;
+}
+
+.flex_children {
+  margin: 15px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  font-family: 'Special Elite', cursive;
+  bottom: 3.5vh;
+  width: 100%;
+}
+
+.footer-block {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+
+  border-radius: 30px;
+  padding: 10px 21px 7px 21px;
+  background-color: rgb(49, 49, 49);
+  box-shadow: 0px 0px 10px rgb(172, 172, 172);
+}
+
+a {
+  font-family: 'Special Elite', cursive;
+  font-size: 21px; /* 1vw */
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+
+  border-radius: 30px;
+  padding: 10px 18px 6px  18px;
+  background-color: rgb(255, 145, 0);
+  box-shadow: 0px 0px 5px rgb(172, 172, 172);
+}
+
+a:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 161, 135);
+  transition: 0.3s;
+}
+
+button {
+  font-family: 'Pangolin', cursive;
+  font-size: 20px;
+  background-color: rgb(247, 247, 247);
+  box-shadow: 0px 0px 4px rgb(194, 194, 194);
+  
+  padding: 2px 6px 2px  6px; 
+  margin: 10px;
+  bottom: 0;
+  right: 0;
+  border: 0;
+}
+
+button:hover {
+  background-color: rgb(233, 233, 233);
+  transition: 0.3s;
+}
+
+.hash_labels {
+  display: flex;
+  justify-content: center;
+}
+
+/* Bouton top-left */
+.top_left_container {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.top_left {
+  background-color: rgb(49, 49, 49);
+}
+
+.top_left:hover {
+  background-color: rgb(0, 122, 102);
+}
+
+img {
+  max-width: 250px;
+  max-height: 250px;
+  padding: 5px;
+  margin: 15px;
+}
+
+.miniature:hover {
+  box-shadow: 0px 0px 10px rgb(172, 172, 172);
+  transition: 0.3s;
+}
+
+/*** MODALE IMAGE ***/
+/* Modal background */
+.modal-img {
+  display: none;
+  position: fixed; 
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* scroll */
+  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+
+/* Modal content */
+.modal-content-img {
+  margin: auto;
+  margin-bottom: 200px;
+  padding: 35px;
+  display: flex;
+  max-width: 80%;
+  max-height: none;
+}
+
+/* Animation */
+.modal-content-img {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.4s;
+  animation-name: zoom;
+  animation-duration: 0.4s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* Close Button */
+.close-img {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 60px;
+  font-weight: bold;
+  transition: 0.1s;
+}
+
+.close-img:hover,
+.close-img:focus {
+  color: rgb(175, 175, 175);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*** MODALE ENCADRE ***/
+/* Modal background */
+.modal-desc {
+  display: none;
+  position: fixed; 
+  z-index: 1; /* Sit on top */
+  top: 50px;
+  left: 50px;
+  padding-top: 10px; /* Location of the box */
+  width: 350px;
+  height: 90%;
+  background-color: rgba(255, 255, 255, 0.9); /* Black w/ opacity */
+}
+
+/* Modal content */
+.modal-content-desc {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+}
+
+/* Animation */
+.modal-content-desc {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.4s;
+  animation-name: zoom;
+  animation-duration: 0.4s;
+}
+
+.img-desc {
+  max-width: 150px;
+  max-height: none;
+}
+
+/* Close Button */
+.close-desc {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: rgb(29, 29, 29);
+  font-size: 60px;
+  font-weight: bold;
+  transition: 0.1s;
+}
+
+.close-desc:hover,
+.close-desc:focus {
+  color:#727272;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/*** LOG IN ***/
+/* Champs Log In */
+.card-body {
+  display: flex;
+  justify-content: center;
+}
+
+/* Bouton Log In */
+.btn_login {
+  text-align: center;
+}
+
