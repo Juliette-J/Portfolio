@@ -42,7 +42,7 @@ class HashtagRequest extends FormRequest
     public function rules()
     {
         return [
-            'label' => 'required|string|unique:hashtags,label'
+            'label' => 'required|string|unique:hashtags,label' /* ,'.($this->id ?? 'NULL').',id' */
         ];
     }
 }

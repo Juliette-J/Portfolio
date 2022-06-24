@@ -33,6 +33,9 @@
                         <label for="{{$image->title}}">{{$image->title}}</label>
                         </br>
                         <img  src="{{ $image->path }}" id="{{ $image->id }}" class="image"/>
+                        @error('{{$image->title}}')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     </fieldset>
                     </br>  
                 @endforeach
@@ -44,7 +47,11 @@
                         @foreach ($hashtags as $hashtag)
                             <input type="radio" name="hash_id" value="{{$hashtag->id}}"> 
                             <label for="{{$hashtag->label}}">{{$hashtag->label}}</label>
-                            </br></br>
+                            </br>
+                            @error('{{$hashtag->label}}')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            </br>
                         @endforeach
                     </ul>
                 </fieldset>
