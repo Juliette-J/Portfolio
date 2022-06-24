@@ -34,7 +34,8 @@ Route::group(['prefix' => 'admin/images'],function(){
     /* UPDATE IMAGE */
     Route::get('/', [ImageController::class, 'index'])->name('images.list'); // Listing des images
     Route::get('/{id}/edit', [ImageController::class, 'edit'])->name('images.edit'); // Formulaire de modification d'image
-    Route::post('/{id}/edit', [ImageController::class, 'update'])->name('images.update'); // Envoi du formulaire
+    Route::post('/{image}/edit', [ImageController::class, 'update'])->name('images.update'); // Envoi du formulaire
+    
 
     /* DELETE IMAGE */
     Route::get('/{id}/delete', [ImageController::class, 'destroy'])->name('images.destroy');
