@@ -39,10 +39,20 @@ class LinkImageHashsController extends Controller
         ]);
     }
 
+    /*
     public function update(LinkImageHashsRequest $request, LinkImageHashs $link) {
         if($link->fill($request->all())->save()) {
             return view('home');
         }
+    }
+    */
+
+    public function update(LinkImageHashsRequest $request, $id) {
+        $link = LinkImageHashs::find($id);
+        if($link->fill($request->all())->save()) {
+            return redirect()->route('home.admin')->with('succes', 'Success !');
+        }
+        return redirect()->route('home.admin')->with('error', 'Error...');
     }
 
     public function show(LinkImageHashs $link) {

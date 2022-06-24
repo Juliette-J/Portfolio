@@ -31,7 +31,7 @@
                     </br></br>
                     <label for="path">Path :<label>
                     </br>
-                    <input type="text" name="path">
+                    <input type="text" name="path_">
                     </br></br>
                     <label for="date">Date :<label>
                     </br>
