@@ -34,11 +34,10 @@ Route::group(['prefix' => 'admin/images'],function(){
     /* UPDATE IMAGE */
     Route::get('/', [ImageController::class, 'index'])->name('images.list'); // Listing des images
     Route::get('/{id}/edit', [ImageController::class, 'edit'])->name('images.edit'); // Formulaire de modification d'image
-    Route::post('/{image}/edit', [ImageController::class, 'update'])->name('images.update'); // Envoi du formulaire
-    
+    Route::post('/{id}/edit', [ImageController::class, 'update'])->name('images.update'); // Envoi du formulaire
 
     /* DELETE IMAGE */
-    Route::get('/{id}/delete', [ImageController::class, 'destroy'])->name('images.destroy');
+    Route::post('/{id}/delete', [ImageController::class, 'destroy'])->name('images.destroy');
 });
 
 Route::group(['prefix' => 'admin/hashs'],function(){
@@ -48,18 +47,17 @@ Route::group(['prefix' => 'admin/hashs'],function(){
 
     /* DELETE HASH */
     Route::get('/', [HashtagController::class, 'index'])->name('hashs.list'); // Listing des hashtags
-    Route::get('/{id}/delete', [HashtagController::class, 'destroy'])->name('hashs.destroy');
+    Route::post('/{id}/delete', [HashtagController::class, 'destroy'])->name('hashs.destroy');
 });
 
 Route::group(['prefix' => 'admin/links'],function(){
     /* ADD LINK */
     Route::post('/', [LinkImageHashsController::class, 'store'])->name('links.store');
     Route::get('/create',[LinkImageHashsController::class, 'create'])->name('links.create');
-   
 
     /* DELETE LINK */
     Route::get('/', [LinkImageHashsController::class, 'index'])->name('links.list'); // Listing des links
-    Route::get('/{id}/delete', [LinkImageHashsController::class, 'destroy'])->name('links.destroy');
+    Route::post('/{id}/delete', [LinkImageHashsController::class, 'destroy'])->name('links.destroy');
 });
 
 /**

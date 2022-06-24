@@ -43,11 +43,12 @@ class ImageController extends Controller
         ]);
     }
 
-    public function update(ImageRequest $request, Image $image) {
+    public function update(ImageRequest $request, $id) {
+        $image = Image::find($id);
         if($image->fill($request->all())->save()) {
-            return redirect()->route('images.update', ['id' => $image->id])->with('succes', 'Successfully updated !');
+            return redirect()->route('images.edit', ['id' => $image->id])->with('succes', 'Successfully updated !');
         }
-        return redirect()->route('images.update', ['id' => $image->id])->with('error', 'Not updated !');
+        return redirect()->route('images.edit', ['id' => $image->id])->with('error', 'Not updated !');
     }
 
     public function show(Image $image) {

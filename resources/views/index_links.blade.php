@@ -27,7 +27,11 @@
                         <p>Link.s :</p>
                         @foreach ($links as $link)
                             @if ($link->id_image == $image->id)
-                                <p>{{ $link->label}} <a href="{{ route('links.destroy', ['id' => $link->id]) }}" alt="">Delete</a> </p>
+                                <p>{{ $link->label}}</p>
+                                <form action="{{ route('links.destroy', ['id' => $link->id]) }}" method="POST">
+                                    @csrf
+                                    <button type="submit">Delete</button>
+                                </form>
                             @endif
                         @endforeach
                     </fieldset>

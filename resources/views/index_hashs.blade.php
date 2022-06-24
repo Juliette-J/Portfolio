@@ -22,16 +22,20 @@
             <h2>Delete a hashtag</h2>
             @foreach ($hashtags as $hashtag)
                 <fieldset>
-                        <h3> <a href="{{ route('hashs.destroy', ['id' => $hashtag->id]) }}" alt="">Delete</a> {{ $hashtag->label}} </h3>
-                        <p>Linked images :</p>
-                        <div>
-                        @foreach ($images as $image)
-                            @if ($image->id == $hashtag->id)
-                                <img  src="{{ $image->path }}" id="{{ $image->id_image }}" class="image"/>
-                            @endif
-                        @endforeach
-                        </div>
-                        </br>
+                    <form action="{{ route('hashs.destroy', ['id' => $hashtag->id]) }}" method="POST">
+                        @csrf
+                        <button type="submit">Delete</button>
+                    </form>
+                    <h3>{{ $hashtag->label }}</h3>
+                    <p>Linked images :</p>
+                    <div>
+                    @foreach ($images as $image)
+                        @if ($image->id == $hashtag->id)
+                            <img  src="{{ $image->path }}" id="{{ $image->id_image }}" class="image"/>
+                        @endif
+                    @endforeach
+                    </div>
+                    </br>
                 </fieldset>
                 </br></br>
             @endforeach

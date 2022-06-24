@@ -29,7 +29,10 @@
                         </br>
                         <div class="flex">
                             <a href="{{ route('images.edit', ['id' => $image->id]) }}" alt="">Edit</a>
-                            <a href="{{ route('images.destroy', ['id' => $image->id]) }}" alt="">Delete</a>
+                            <form action="{{ route('images.destroy', ['id' => $image->id]) }}" method="POST">
+                                @csrf
+                                <button type="submit">Delete</button>
+                            </form>
                         </div>
                     </fieldset>
                 @endforeach

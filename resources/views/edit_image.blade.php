@@ -33,7 +33,7 @@
                 </div>
             @endif
 
-            <form action="{{ route('images.update', ['image' => $image->id]) }}" method="POST">
+            <form action="{{ route('images.update', ['id' => $image->id]) }}" method="POST">
                 @csrf
                 <fieldset>
                     </br>
