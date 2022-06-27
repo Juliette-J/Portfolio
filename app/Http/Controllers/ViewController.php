@@ -15,7 +15,6 @@ class ViewController extends Controller
         $image_hashs_query = LinkImageHashs::query();
         $hashtags = $request->get('hashtags');
         
-
         if($type) {
             $images_query->join('types', 'images.id_type', 'types.id')->select('images.*')->where('types.slug',$type);
         }

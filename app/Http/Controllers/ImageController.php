@@ -23,9 +23,9 @@ class ImageController extends Controller
         $images->desc = $request->input('desc');
         $images->id_type = $request->input('id_type');
         if($images->save()) {
-            //return view('home');
-            return redirect()->route('home.admin')->with('succes', 'Success !');
+            return redirect()->route('home.admin')->with('succes', 'Successfully stored !');
         }
+        return redirect()->route('home.admin')->with('error', 'Error...');
     }
 
     public function index() {
@@ -36,7 +36,6 @@ class ImageController extends Controller
     public function edit($id) {
         $image = Image::find($id);
         $types = Type::get();
-        //dd($image);
         return view('edit_image', [
             'image' => $image,
             'types' => $types
@@ -51,16 +50,17 @@ class ImageController extends Controller
         return redirect()->route('images.edit', ['id' => $image->id])->with('error', 'Not updated !');
     }
 
-    public function show(Image $image) {
-        return $image;
-    }
-
     public function destroy($id) {
         LinkImageHashs::where('image_hashs.id_image', $id)->delete();
         if(Image::find($id)->delete()) {
-            return redirect()->route('home.admin')->with('succes', 'Success !');
-            //return view('home');
+            return redirect()->route('home.admin')->with('succes', 'Successfully deleted !');
         }
+        return redirect()->route('home.admin')->with('error', 'Error...');
+    }
+    
+    /* Pas utilisée */
+    public function show(Image $image) {
+        return $image;
     }
 }
 

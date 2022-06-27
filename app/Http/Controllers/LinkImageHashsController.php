@@ -23,46 +23,38 @@ class LinkImageHashsController extends Controller
         $link->id_hashtag = $request->input('hash_id');
         dd($link);
         if($link->save()) {
-            //return view('home');
-            return redirect()->route('home.admin')->with('succes', 'Success !');
+            return redirect()->route('home.admin')->with('succes', 'Successfully stored !');
         }
         return redirect()->route('home.admin')->with('error', 'Error...');
     }
 
     public function index() {
-        $images = Image::get(); //join('image_hashs', 'hashtags.id', 'image_hashs.id_hashtag')->join('images', 'image_hashs.id_image', 'images.id')->orderBy('hashtags.label')->get();
+        $images = Image::get(); 
         $links = LinkImageHashs::join('images', 'image_hashs.id_image', 'images.id')->join('hashtags', 'image_hashs.id_hashtag', 'hashtags.id')->select(['image_hashs.id', 'image_hashs.id_image', 'hashtags.label'])->get();
         return view('index_links', [
             'images' => $images,
             'links' => $links
-            
         ]);
     }
-
-    /*
-    public function update(LinkImageHashsRequest $request, LinkImageHashs $link) {
-        if($link->fill($request->all())->save()) {
-            return view('home');
-        }
-    }
-    */
 
     public function update(LinkImageHashsRequest $request, $id) {
         $link = LinkImageHashs::find($id);
         if($link->fill($request->all())->save()) {
-            return redirect()->route('home.admin')->with('succes', 'Success !');
+            return redirect()->route('home.admin')->with('succes', 'Successfully updated !');
         }
         return redirect()->route('home.admin')->with('error', 'Error...');
     }
 
-    public function show(LinkImageHashs $link) {
-        return $link;
-    }
-
     public function destroy($id) {
         if(LinkImageHashs::find($id)->delete()) {
-            return redirect()->route('home.admin')->with('succes', 'Success !');
+            return redirect()->route('home.admin')->with('succes', 'Successfully deleted !');
         }
+        return redirect()->route('home.admin')->with('error', 'Error...');
+    }
+    
+    /* Pas utilisée */
+    public function show(LinkImageHashs $link) {
+        return $link;
     }
 }
 

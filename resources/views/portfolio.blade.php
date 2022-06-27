@@ -41,7 +41,7 @@
         <script type="text/javascript" src="{{asset('js/hash_URL.js')}}"> </script>
         </br>
 
-        <div class="images">
+        <div class="flex">
             @foreach ($images as $image)
                 <div class="miniature">
                     <img  src="{{ $image->path }}" id="{{ $image->id }}" class="image"/>
@@ -72,7 +72,7 @@
         </div>
 
     </body>
-    </br>
+    </br></br></br>
     <footer>
         <div class="footer-block"> Portfolio 2022 - Juliette Jeannin </div>
     </footer>

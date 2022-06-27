@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\DB;
 
 class TypeController extends Controller
 {
-    public function index(Request $request) {
-        $image = Image::where('id', $request->get('id'))->first();
-        $types = DB::table('types')->get();
-        return view('update_image', ['image' => $image, 'types' => $types]);
+    /* Pas utilisées */
+    public function index() {
+        $types = Type::get();
+        return view('home');
     }
 
     public function store(TypeRequest $request) {

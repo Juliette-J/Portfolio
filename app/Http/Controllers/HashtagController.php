@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class HashtagController extends Controller
 {
     public function create() {
-        $hashtags = DB::table('hashtags')->get();
+        $hashtags = Hashtag::get();
         return view('add_hash', ['hashtags' => $hashtags]);
     }
 
@@ -20,21 +20,29 @@ class HashtagController extends Controller
         $hashtags = new Hashtag();
         $hashtags->label = $request->input('label');
         if($hashtags->save()) {
-            //return view('home');
-            return redirect()->route('home.admin')->with('succes', 'Success !');
+            return redirect()->route('home.admin')->with('succes', 'Successfully stored !');
         }
+        return redirect()->route('home.admin')->with('error', 'Error...');
     }
 
     public function index() {
-        $hashtags = Hashtag::get(); //join('image_hashs', 'hashtags.id', 'image_hashs.id_hashtag')->join('images', 'image_hashs.id_image', 'images.id')->orderBy('hashtags.label')->get();
+        $hashtags = Hashtag::get(); 
         $images = Image::join('image_hashs', 'images.id', 'image_hashs.id_image')->join('hashtags', 'image_hashs.id_hashtag', 'hashtags.id')->get();
-        //dd($hashtags);
         return view('index_hashs', [
             'hashtags' => $hashtags,
             'images' => $images
         ]);
     }
 
+    public function destroy($id) {
+        LinkImageHashs::where('image_hashs.id_hashtag', $id)->delete();
+        if(Hashtag::find($id)->delete()) {
+            return redirect()->route('home.admin')->with('succes', 'Successfully deleted !');
+        }
+        return redirect()->route('home.admin')->with('error', 'Error...');
+    }
+
+    /* Pas utilisées */
     public function update(HashtagRequest $request, Hashtag $hashtags) {
         if($hashtags->fill($request->all())->save()) {
             return view('home');
@@ -45,12 +53,6 @@ class HashtagController extends Controller
         return $hash;
     }
 
-    public function destroy($id) {
-        LinkImageHashs::where('image_hashs.id_hashtag', $id)->delete();
-        if(Hashtag::find($id)->delete()) {
-            return redirect()->route('home.admin')->with('succes', 'Success !');
-            //return view('home');
-        }
-    }
+    
 }
 
