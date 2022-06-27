@@ -37,7 +37,7 @@
                     </br>
                     <label for="path">Path :<label>
                     </br>
-                    <input type="text" name="path_">
+                    <input type="text" name="path">
                     </br>
                     
                     @error('path')

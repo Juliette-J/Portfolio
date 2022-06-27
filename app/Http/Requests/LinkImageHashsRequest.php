@@ -42,8 +42,8 @@ class LinkImageHashsRequest extends FormRequest
     public function rules()
     {
         return [
-            'id_image' => 'required|integer|exist:images,id',
-            'id_hashtag' => 'required|integer|exist:hashtag,id'
+            'id_image' => 'required|integer',   // |exist:images,id ?
+            'id_hashtag' => 'required|integer'   // |exist:hashtags,id ?
         ];
     }
 }

@@ -17,7 +17,7 @@
             <a href="/login" class="top_left">Log In</a>
         </div>
         </br>
-        <fieldset>
+        <fieldset class="bannière">
             <h1>Portfolio</h1>
         </fieldset>
         </br>

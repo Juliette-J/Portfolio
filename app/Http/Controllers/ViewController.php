@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Image;
-use App\Models\Type;
-use App\Models\Hashtag;
 use App\Models\LinkImageHashs;
 use Illuminate\Http\Request;
 

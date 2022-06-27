@@ -24,28 +24,32 @@
             @csrf
             <fieldset>
                 </br>
-                <label for="image_path">Choose an image :<label>
+                <label>Choose an image :</label>
                 </br></br>
-                @foreach ($images as $image)
-                    <fieldset>
-                        </br>
-                        <input type="radio" name="image_id" value="{{$image->id}}">
-                        <label for="{{$image->title}}">{{$image->title}}</label>
-                        </br>
-                        <img  src="{{ $image->path }}" id="{{ $image->id }}" class="image"/>
-                        @error('{{$image->title}}')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </fieldset>
-                    </br>  
-                @endforeach
+                <div class="flex">
+                    @foreach ($images as $image)
+                        <fieldset>
+                            </br>
+                            <input type="radio" name="id_image" value="{{$image->id}}">
+                            <label for="{{$image->title}}">{{$image->title}}</label>
+                            </br>
+                            <img src="{{ $image->path }}" id="{{ $image->path }}"/>
+                            </br>
+                            @error('{{$image->path}}')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            </br>
+                        </fieldset>
+                        </br>  
+                    @endforeach
+                </div>
                 </br></br>
-                <label for="image_hash_ref">Choose a reference :<label>
+                <label>Choose a reference :</label>
                 </br></br>
                 <fieldset>
                     <ul>
                         @foreach ($hashtags as $hashtag)
-                            <input type="radio" name="hash_id" value="{{$hashtag->id}}"> 
+                            <input type="radio" name="id_hashtag" value="{{$hashtag->id}}"> 
                             <label for="{{$hashtag->label}}">{{$hashtag->label}}</label>
                             </br>
                             @error('{{$hashtag->label}}')

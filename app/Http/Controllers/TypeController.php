@@ -3,10 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Type;
-use App\Models\Image;
 use App\Http\Requests\TypeRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class TypeController extends Controller
 {

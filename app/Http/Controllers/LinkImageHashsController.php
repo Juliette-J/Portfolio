@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Models\LinkImageHashs;
-use App\Http\Requests\LinkImageHashsRequest;
-use App\Models\Hashtag;
 use App\Models\Image;
-use Illuminate\Support\Facades\DB;
+use App\Models\Hashtag;
+use App\Http\Requests\LinkImageHashsRequest;
 
 class LinkImageHashsController extends Controller
 {
@@ -19,9 +17,9 @@ class LinkImageHashsController extends Controller
 
     public function store(LinkImageHashsRequest $request) {
         $link = new LinkImageHashs();
-        $link->id_image = $request->input('image_id');
-        $link->id_hashtag = $request->input('hash_id');
-        dd($link);
+        $link->id_image = $request->input('id_image');
+        $link->id_hashtag = $request->input('id_hashtag');
+        //dd($link);
         if($link->save()) {
             return redirect()->route('home.admin')->with('succes', 'Successfully stored !');
         }

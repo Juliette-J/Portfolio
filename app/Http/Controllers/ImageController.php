@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Image;
 use App\Models\Type;
-use App\Http\Requests\ImageRequest;
 use App\Models\LinkImageHashs;
-use Illuminate\Support\Facades\DB;
+use App\Http\Requests\ImageRequest;
 
 class ImageController extends Controller
 {
