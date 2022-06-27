@@ -20,4 +20,5 @@ For this project, I use :
 | id_type     |             |             | (timestamp) |
 | date        |
 | desc        |
+| desc_fr     |
 | (timestamp) |

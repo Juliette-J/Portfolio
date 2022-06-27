@@ -36,6 +36,7 @@
             <form action="{{ route('images.update', ['id' => $image->id]) }}" method="POST">
                 @csrf
                 <fieldset>
+                    <img  src="{{ $image->path }}" id="{{ $image->id }}" class="image"/>
                     </br>
                     <label for="title">Title :<label>
                     </br>
@@ -67,12 +68,22 @@
                     @enderror
 
                     </br>
-                    <label for="description">Description :<label>
+                    <label for="en_description">English description :<label>
                     </br>
                     <textarea name="desc">{{$image->desc}}</textarea>
                     </br>
 
-                    @error('description')
+                    @error('en_description')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
+                    </br>
+                    <label for="fr_description">French description :<label>
+                    </br>
+                    <textarea name="desc_fr">{{$image->desc_fr}}</textarea>
+                    </br>
+
+                    @error('fr_description')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
 
@@ -87,7 +98,6 @@
                     @error('type')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                    
                     </br>
                 </fieldset>
                 </br>

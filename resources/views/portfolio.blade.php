@@ -69,6 +69,8 @@
                         <p>{{ $image->date }} </p>
                         </br>
                         <p>{{ $image->desc }}</p>
+                        </br>
+                        <p>{{ $image->desc_fr }}</p>
                     </div>
                 </div>
                 

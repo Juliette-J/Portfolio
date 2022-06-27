@@ -19,7 +19,8 @@ class ImageController extends Controller
         $images->title = $request->input('title');
         $images->path = $request->input('path');
         $images->date = $request->input('date');
-        $images->desc = $request->input('desc');
+        $images->desc = $request->input('en_desc');
+        $images->desc_fr = $request->input('fr_desc');
         $images->id_type = $request->input('id_type');
         if($images->save()) {
             return redirect()->route('home.admin')->with('succes', 'Successfully stored !');

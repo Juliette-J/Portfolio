@@ -12,7 +12,7 @@ class Image extends Model
     protected $table = "images";
     protected $primarykey = "id";
 
-    protected $fillable = ['title','path', 'date', 'desc', 'id_type'];
+    protected $fillable = ['title','path', 'date', 'desc', 'desc_fr', 'id_type'];
     //$images = Image::simplePaginate(18);  ???
 
     public $with = ['type'];

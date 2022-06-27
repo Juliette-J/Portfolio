@@ -55,12 +55,22 @@
                     @enderror
                     
                     </br>
-                    <label for="description">Description :<label>
+                    <label for="en_description">English description :<label>
                     </br>
                     <textarea name="desc">...</textarea>
                     </br>
                     
-                    @error('description')
+                    @error('en_description')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+
+                    </br>
+                    <label for="fr_description">French description :<label>
+                    </br>
+                    <textarea name="desc_fr">...</textarea>
+                    </br>
+                    
+                    @error('fr_description')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     

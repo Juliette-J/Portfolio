@@ -46,6 +46,7 @@ class ImageRequest extends FormRequest
             'path' => 'required|string|unique:images,path,'.($this->id ?? 'NULL').',id',
             'date' => 'required|date',
             'desc' => 'required|string',
+            'desc_fr' => 'required|string',
             'id_type' => 'required|integer|exists:types,id'
         ];
     }
