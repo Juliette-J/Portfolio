@@ -66,3 +66,7 @@ Route::group(['prefix' => 'admin/links'],function(){
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/fr', function () {
+    return view('accueil');
+});

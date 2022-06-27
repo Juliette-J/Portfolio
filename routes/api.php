@@ -1,13 +1,7 @@
 <?php
 
-use App\Http\Controllers\ImageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
-use \App\Models\Type;
-use \App\Models\Hashtag;
-use \App\Models\Image;
-use \App\Models\LinkImageHashs;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +15,6 @@ use \App\Models\LinkImageHashs;
 */
 
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:auth')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-/* Route::resources([
-    'images' => ImageController::class,
-    'hashtags' => HashtagController::class,
-    'links' => LinkImageHashsController::class
-]); */
