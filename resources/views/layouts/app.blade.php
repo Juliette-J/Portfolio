@@ -19,8 +19,7 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body>
-        
-        <div id="app">
+        <div id="app" class="app_background">
             <!-- Authentication Links -->
             @guest
                 <!-- @if (Route::has('login'))
