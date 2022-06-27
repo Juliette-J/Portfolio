@@ -3,7 +3,7 @@
 use App\Http\Controllers\HashtagController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LinkImageHashsController;
-use App\Http\Controllers\TypeController;
+use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\ViewController;
 use App\Models\LinkImageHashs;
 use Illuminate\Support\Facades\Auth;
@@ -20,11 +20,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/* ADMIN */
 Auth::routes();
+Route::get('/home/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home.admin');
+
+/* LANG */
+Route::get('locale', [LocalizationController::class, 'getLang'])->name('lang.get');
+Route::get('locale/{lang}', [LocalizationController::class, 'setLang'])->name('lang.set');
 
 Route::get('/portfolio/{type?}',[ViewController::class, "portfolio"]);
-
-Route::get('/home/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home.admin');
 
 Route::group(['prefix' => 'admin/images'],function(){
     /* ADD IMAGE */
@@ -60,13 +64,7 @@ Route::group(['prefix' => 'admin/links'],function(){
     Route::post('/{id}/delete', [LinkImageHashsController::class, 'destroy'])->name('links.destroy');
 });
 
-/**
- * Vue publique
- */
+/* Vue publique */
 Route::get('/', function () {
     return view('welcome');
-});
-
-Route::get('/fr', function () {
-    return view('accueil');
 });

@@ -14,24 +14,27 @@
     </head>
 
     <body>
-        <div class="top_left_container">
-            <a href="/login" alt="" class="top_left">Log In</a>
-        <div>
-        </br>
-        <fieldset>
+        <nav class="top_container">
+            <div class="top_left_container">
+                <a href="/login" class="top_left">{{ __("Log In") }}</a>
+            </div>
+            <div class="top_right_container">
+                <a href="locale/en" class="top_right">En</a>
+                <a href="locale/fr" class="top_right">Fr</a>
+            </div>
+        </nav>
+        <fieldset class="bannière">
             <h1>Portfolio</h1>
         </fieldset>
         </br>
         <nav>
-            <a href="/">Homepage</a>
-            <a href="/portfolio">Creations</a>
-            <a href="/">Projects</a>
-            <a href="/">Contact</a>
+            <a href="/">{{ __("Homepage") }}</a>
+            <a href="/portfolio">{{ __("Creations") }}</a>
+            <a href="/">{{ __("Projects") }}</a>
+            <a href="/">{{ __("Contact") }}</a>
         </nav>
-        </br>
-
-        </br>
-        <p>Hi ! Welcome to my online-portfolio !</p>
+        </br></br>
+        <p>{{ __("Hi ! Welcome to my online-portfolio !") }}</p>
         </br>
     </body>
 

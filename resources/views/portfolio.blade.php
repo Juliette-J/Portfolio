@@ -13,21 +13,26 @@
         <title>JJ's Porfolio</title>
     </head>
     <body>
-        <div class="top_left_container">
-            <a href="/login" class="top_left">Log In</a>
-        </div>
-        </br>
+        <nav class="top_container">
+            <div class="top_left_container">
+                <a href="/login" class="top_left">{{ __("Log In") }}</a>
+            </div>
+            <div class="top_right_container">
+                <a href="locale/en" class="top_right">En</a>
+                <a href="locale/fr" class="top_right">Fr</a>
+            </div>
+        </nav>
         <fieldset class="bannière">
             <h1>Portfolio</h1>
         </fieldset>
         </br>
         <nav>
-            <a href="/">Homepage</a> 
+            <a href="/">{{ __("Homepage") }}</a> 
             </br>
-            <a href="/portfolio/dessin">Drawings</a>
-            <a href="/portfolio/photo">Photos</a>
+            <a href="/portfolio/dessin">{{ __("Drawings") }}</a>
+            <a href="/portfolio/photo">{{ __("Photos") }}</a>
             </br>
-            <a href="/portfolio">Back</a>
+            <a href="/portfolio">{{ __("Back") }}</a>
         </nav>
         </br>
 
