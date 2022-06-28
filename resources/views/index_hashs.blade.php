@@ -12,37 +12,32 @@
 
         <title>JJ's Portfolio - Delete</title>
     </head>
-
-    <body>
+    <body class="app_background">
         <div class="top_left_container">
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
-        <h1>DELETE</h1>
-        <fieldset>
-            <h2>Delete a hashtag</h2>
+        <h1 class="admin_title">DELETE HASHTAG</h1>
+        <div class="flex">
             @foreach ($hashtags as $hashtag)
                 <fieldset>
                     <form action="{{ route('hashs.destroy', ['id' => $hashtag->id]) }}" method="POST">
                         @csrf
                         <button type="submit">Delete</button>
                     </form>
-                    <h3>{{ $hashtag->label }}</h3>
+                    <h2>{{ $hashtag->label }}</h2>
                     <p>Linked images :</p>
-                    <div>
-                    @foreach ($images as $image)
-                        @if ($image->id == $hashtag->id)
-                            <img  src="{{ $image->path }}" id="{{ $image->id_image }}" class="image"/>
-                        @endif
-                    @endforeach
+                    <div class="flex">
+                        @foreach ($images as $image)
+                            @if ($image->id == $hashtag->id)
+                                <img src="{{ $image->path }}" id="{{ $image->id_image }}" class="image"/>
+                            @endif
+                        @endforeach
                     </div>
-                    </br>
                 </fieldset>
-                </br></br>
             @endforeach
-            </br>
-        </fieldset>
+        </div>
     </body>
-
+    </br></br></br>
     <footer>
         <div class="footer-block"> Portfolio 2022 - Juliette Jeannin </div>
     </footer>

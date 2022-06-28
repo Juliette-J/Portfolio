@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="top_left_container">
-    <a href="/" alt="" class="top_left">Back</a>
-</div>
-</br>
+
 <div class="container">
+    <div class="top_left_container">
+        <a href="/" alt="" class="top_left">Back</a>
+    </div>
+    </br>
     <div class="card">
-        <h2>Log In</h2>
-        </br>
+        <h1 class="admin_title">Log In</h1>
         <div class="card-body">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
@@ -24,9 +24,12 @@
                         </span>
                     @enderror
                     </br></br>
+
                     <label for="password">Password :</label>
                     </br>
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    </br></br></br>
+                    
                     @error('password')
                         </br>
                         <span class="invalid-feedback" role="alert">
@@ -34,22 +37,23 @@
                         </span>
                     @enderror
 
+                    <div class="btn_login">
+                        <button type="submit">Go !</button>
+                    </div>
+
                     <!-- <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                         <label class="form-check-label" for="remember">
                             {{ __('Remember Me') }}
                         </label>
                     </div> -->
-                    </br></br>
-                    <div class="btn_login">
-                        <button type="submit">Go !</button>
-                    </div>
                 </fieldset>
-                </br> </br>
-                @if (Route::has('password.request'))
-                    <a class="btn btn-link" href="{{ route('password.request') }}">Forgot your password ?</a>
-                @endif
             </form>
+        </div>
+        <div class="flex">
+            @if (Route::has('password.request'))
+                <a href="{{ route('password.request') }}" class="flex_children">Forgot your password ?</a>
+            @endif
         </div>
     </div>
 </div>

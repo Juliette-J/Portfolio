@@ -79,7 +79,6 @@
         </div>
 
     </body>
-    </br></br></br>
     <footer>
         <div class="footer-block"> Portfolio 2022 - Juliette Jeannin </div>
     </footer>

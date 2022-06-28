@@ -33,7 +33,6 @@
                         <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
                 @endif -->
-                
             @else
                 <div class="top_left_container">
                     <a class="top_left" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</a>
@@ -41,27 +40,19 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
-                </br>
                 @if ( session('succes') )
                     <div class="alert alert-succes">
-                        <h1>{{ session('succes') }}</h1>
+                        <h1 class="admin_title">{{ session('succes') }}</h1>
                     </div>
                 @else
-                    <h1>Hi {{ Auth::user()->name }} !</h1>
+                    <h1 class="admin_title">Hi {{ Auth::user()->name }} !</h1>
                 @endif
-
                 <!-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }} </a> -->
             @endguest
-
-             
-
-            <main class="py-4">
+            <main>
                 @yield('content')
             </main>
         </div>
     </body>
-    <footer>
-        <div class="footer-block"> Portfolio 2022 - Juliette Jeannin </div>
-    </footer>
 </html>

@@ -1,5 +1,7 @@
 body {
   background-color: #f1f1f1;
+  height: 100vh;
+  margin: 0;
 }
 
 /*** TEXT ***/
@@ -18,7 +20,7 @@ h3{
   font-family: 'Pangolin', cursive;
   font-size: 20px;
 }
-label, legend {
+label {
   font-family: 'Special Elite', cursive;
   text-align: center;
   font-size: 18px;
@@ -34,16 +36,23 @@ p {
 
 /*** FRAMES/CONTANERS ***/
 .app_background{
-  background-image: url('../storage/images/ESIPE.png');
+  height: 100%;
+  background-image: url('../storage/images/BG/Plage.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  margin: 0;
+}
+.bannière{
+  width: 90vw;
+  margin: auto;
 }
 fieldset {
   border :rgb(29, 29, 29);
   box-shadow: 0px 0px 10px rgb(172, 172, 172);
   background-color: rgb(248, 248, 248);
   margin : 20px;
+  width: 300px;
 }
 .flex {
   display: flex;
@@ -59,6 +68,7 @@ footer {
   display: flex;
   justify-content: center;
   position: fixed;
+
   font-family: 'Special Elite', cursive;
   bottom: 3.5vh;
   width: 100%;
@@ -69,9 +79,11 @@ footer {
   font-size: 20px;
 
   border-radius: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
   padding: 10px 21px 7px 21px;
   background-color: rgb(49, 49, 49);
-  box-shadow: 0px 0px 10px rgb(172, 172, 172);
+  box-shadow: 0px 0px 5px rgb(172, 172, 172);
 }
 
 /*** BUTTONS/LINKS ***/
@@ -124,14 +136,14 @@ button:hover {
   margin-bottom: 40px;
 }
 .top_left_container {
-  margin-top: 20px;
-  margin-left: 10px;
+  padding-top: 20px;
+  padding-left: 10px;
 }
 .top_left {
   background-color: rgb(49, 49, 49);
 }
 .top_left:hover {
-  background-color: rgb(0, 122, 102);
+  background-color: rgb(77, 77, 77);
 }
 .top_right_container {
   margin-top: 20px;
@@ -260,15 +272,15 @@ img {
   cursor: pointer;
 }
 
-/*** LOG IN ***/
+/*** ADMIN ***/
 
-/* Champs Log In */
+/* Title */
+.admin_title{
+  color: #f1f1f1;
+}
+/* Textareas */
 .card-body {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
-/* Bouton Log In */
-.btn_login {
-  text-align: center;
-}
-

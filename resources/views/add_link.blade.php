@@ -13,19 +13,15 @@
         <title>JJ's Portfolio - New</title>
     </head>
 
-    <body>
+    <body class="app_background">
         <div class="top_left_container">
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
         </br>
-        <h1>NEW</h1>
-        <h2>Link the image and its reference.s</h2>
-        <form action="{{ route('links.store') }}" method="POST">
-            @csrf
-            <fieldset>
-                </br>
-                <label>Choose an image :</label>
-                </br></br>
+        <h1 class="admin_title">NEW LINK</h1>
+        <div class="flex"> 
+            <form action="{{ route('links.store') }}" method="POST">
+                @csrf
                 <div class="flex">
                     @foreach ($images as $image)
                         <fieldset>
@@ -44,27 +40,30 @@
                     @endforeach
                 </div>
                 </br></br>
-                <label>Choose a reference :</label>
-                </br></br>
-                <fieldset>
-                    <ul>
-                        @foreach ($hashtags as $hashtag)
-                            <input type="radio" name="id_hashtag" value="{{$hashtag->id}}"> 
-                            <label for="{{$hashtag->label}}">{{$hashtag->label}}</label>
-                            </br>
-                            @error('{{$hashtag->label}}')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                            </br>
-                        @endforeach
-                    </ul>
-                </fieldset>
-                </br>
-                <input type="submit" value="Link">
-                </br></br>
-            </fieldset>
-        </form>
-        </br></br>
+                <div class="flex">
+                    <fieldset>
+                        </br>
+                        <label>Link with a reference below:</label>
+                        </br>
+                        <fieldset>
+                            <ul>
+                                @foreach ($hashtags as $hashtag)
+                                    <input type="radio" name="id_hashtag" value="{{$hashtag->id}}"> 
+                                    <label for="{{$hashtag->label}}">{{$hashtag->label}}</label>
+                                    </br>
+                                    @error('{{$hashtag->label}}')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                    </br>
+                                @endforeach
+                            </ul>
+                        </fieldset>
+                        <input type="submit" value="Link">
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+        </br></br></br>
     </body>
 
     <footer>

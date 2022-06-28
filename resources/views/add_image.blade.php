@@ -13,14 +13,13 @@
         <title>JJ's Portfolio - New</title>
     </head>
 
-    <body>
+    <body class="app_background">
         <div class="top_left_container">
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
         </br>
-        <h1>NEW</h1>
-        <fieldset>
-            <h2>Add an image</h2>
+        <h1 class="admin_title">NEW IMAGE</h1>
+        <div class="card-body">
             <form action="{{ route('images.store') }}" method="POST">
                 @csrf
                 <fieldset>
@@ -29,51 +28,41 @@
                     </br>
                     <input type="text" name="title">
                     </br>
-                    
                     @error('title')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-
                     </br>
                     <label for="path">Path :<label>
                     </br>
                     <input type="text" name="path">
                     </br>
-                    
                     @error('path')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                    
                     </br>
                     <label for="date">Date :<label>
                     </br>
                     <input type="date" name="date">
                     </br>
-                    
                     @error('date')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                    
                     </br>
                     <label for="en_description">English description :<label>
                     </br>
                     <textarea name="desc">...</textarea>
                     </br>
-                    
                     @error('en_description')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-
                     </br>
                     <label for="fr_description">French description :<label>
                     </br>
                     <textarea name="desc_fr">...</textarea>
                     </br>
-                    
                     @error('fr_description')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                    
                     </br>
                     <label for="type">Type :<label>
                     @foreach ($types as $type)
@@ -81,15 +70,12 @@
                         <label for="{{$type->name}}">{{$type->name}}     </label>
                     @endforeach
                     </br></br>
-                    
+                    <input type="submit" value="Send">
                 </fieldset>
-                </br>
-                <input type="submit" value="Send">
-                </br></br>
             </form>
-        </fieldset>
+        </div>
+        </br></br></br></br>
     </body>
-
     <footer>
         <div class="footer-block"> Portfolio 2022 - Juliette Jeannin </div>
     </footer>

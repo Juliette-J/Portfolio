@@ -13,34 +13,30 @@
         <title>JJ's Portfolio - Update / Delete</title>
     </head>
 
-    <body>
+    <body class="app_background">
         <div class="top_left_container">
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
-        <h1>UPDATE / DELETE</h1>
-        <fieldset>
-            <h2>Update / Delete an image</h2>
-            <fieldset class="flex">
-                @foreach ($images as $image)
-                    <fieldset class="flex_children">
-                        <div>
-                            <img  src="{{ $image->path }}" id="{{ $image->id }}" class="image"/>
-                        </div>
-                        </br>
-                        <div class="flex">
-                            <a href="{{ route('images.edit', ['id' => $image->id]) }}" alt="">Edit</a>
-                            <form action="{{ route('images.destroy', ['id' => $image->id]) }}" method="POST">
-                                @csrf
-                                <button type="submit">Delete</button>
-                            </form>
-                        </div>
-                    </fieldset>
-                @endforeach
-            </fieldset>
-            </br>
-        </fieldset>
+        <h1 class="admin_title">UPDATE / DELETE</h1>
+        <div class="flex">
+            @foreach ($images as $image)
+                <fieldset class="flex_children">
+                    <div>
+                        <img  src="{{ $image->path }}" id="{{ $image->id }}" class="image"/>
+                    </div>
+                    </br>
+                    <div class="flex">
+                        <a href="{{ route('images.edit', ['id' => $image->id]) }}" alt="">Edit</a>
+                        <form action="{{ route('images.destroy', ['id' => $image->id]) }}" method="POST">
+                            @csrf
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                </fieldset>
+            @endforeach
+        </div>
+        </br></br></br>
     </body>
-
     <footer>
         <div class="footer-block"> Portfolio 2022 - Juliette Jeannin </div>
     </footer>
