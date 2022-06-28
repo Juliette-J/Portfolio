@@ -15,6 +15,7 @@ h2 {
   font-family: 'Pangolin', cursive;
   text-align: center;
   font-size: 35px; /* 1.5vw */
+  margin: 10px;
 }
 h3{
   font-family: 'Pangolin', cursive;
@@ -29,9 +30,8 @@ p {
   text-align: center;
   font-family: 'Pangolin', cursive;
   font-size: 20px; /* 1.5vw */
-}
-.fr {
-  color:rgba(63, 63, 63, 0.6);
+  margin: 5px;
+  padding:0;
 }
 
 /*** FRAMES/CONTANERS ***/
@@ -43,7 +43,16 @@ p {
   background-size: cover;
   margin: 0;
 }
+.portfolio_background{
+  height: 100%;
+  background-image: url('../storage/images/BG/FondF.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 .bannière{
+  color: #f5f5f5;
+  background-color: rgb(49, 49, 49);
   width: 90vw;
   margin: auto;
 }
@@ -52,7 +61,7 @@ fieldset {
   box-shadow: 0px 0px 10px rgb(172, 172, 172);
   background-color: rgb(248, 248, 248);
   margin : 20px;
-  width: 300px;
+  width: 280px;
 }
 .flex {
   display: flex;
@@ -99,18 +108,18 @@ a {
   text-decoration: none;
 
   border-radius: 30px;
+  margin: 5px;
   padding: 10px 18px 6px  18px;
   background-color: rgb(255, 145, 0);
   box-shadow: 0px 0px 5px rgb(172, 172, 172);
 }
 a:hover {
-  color: rgb(255, 255, 255);
   background-color: rgb(0, 161, 135);
   transition: 0.3s;
 }
-button {
+button, .submit {
   font-family: 'Pangolin', cursive;
-  font-size: 20px;
+  font-size: 18px;
   background-color: rgb(247, 247, 247);
   box-shadow: 0px 0px 4px rgb(194, 194, 194);
   
@@ -120,7 +129,7 @@ button {
   right: 0;
   border: 0;
 }
-button:hover {
+button:hover, .submit:hover {
   background-color: rgb(233, 233, 233);
   transition: 0.3s;
 }
@@ -128,6 +137,7 @@ button:hover {
   display: flex;
   justify-content: center;
 }
+
 
 /*  Top buttons */
 .top_container{
@@ -143,7 +153,7 @@ button:hover {
   background-color: rgb(49, 49, 49);
 }
 .top_left:hover {
-  background-color: rgb(77, 77, 77);
+  background-color: rgb(117, 117, 117);
 }
 .top_right_container {
   margin-top: 20px;
@@ -156,13 +166,16 @@ button:hover {
   background-color: rgb(0, 122, 102);
 }
 
+
 /*** IMAGES ***/
 img {
   max-width: 250px;
   max-height: 250px;
   margin: 15px;
+  padding: 10px;
 }
 .miniature:hover {
+  background-color: #f1f1f1;
   box-shadow: 0px 0px 10px rgb(172, 172, 172);
   transition: 0.3s;
 }
@@ -180,7 +193,7 @@ img {
   width: 100%;
   height: 100%;
   overflow: auto; /* scroll */
-  background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+  background-color: rgba(0,0,0,0.75); /* Black w/ opacity */
 }
 /* Modal content */
 .modal-content-img {
@@ -235,7 +248,7 @@ img {
   padding-top: 10px; /* Location of the box */
   width: 350px;
   height: 90%;
-  background-color: rgba(255, 255, 255, 0.9); /* Black w/ opacity */
+  background-color: rgba(255, 255, 255, 0.98); /* Black w/ opacity */
 }
 /* Modal content */
 .modal-content-desc {
@@ -272,8 +285,8 @@ img {
   cursor: pointer;
 }
 
-/*** ADMIN ***/
 
+/*** ADMIN ***/
 /* Title */
 .admin_title{
   color: #f1f1f1;
@@ -283,4 +296,26 @@ img {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+
+/*** MEDIA QUERIES ***/
+@media(width <= 450px) {
+  h1 {
+    font-size: 45px;
+  }
+  h2 {
+    font-size: 22px;
+  }
+  h3, p, a, button {
+    font-size: 16px;
+  }
+  .modal-desc {
+    top: 0;
+    left: 0;
+    padding-top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.98); /* Black w/ opacity */
+  }
 }

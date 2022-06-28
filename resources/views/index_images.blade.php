@@ -29,7 +29,7 @@
                         <a href="{{ route('images.edit', ['id' => $image->id]) }}" alt="">Edit</a>
                         <form action="{{ route('images.destroy', ['id' => $image->id]) }}" method="POST">
                             @csrf
-                            <button type="submit">Delete</button>
+                            <button type="submit" class="submit">Delete</button>
                         </form>
                     </div>
                 </fieldset>

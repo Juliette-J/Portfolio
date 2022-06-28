@@ -23,7 +23,7 @@
             <form action="{{ route('hashs.store') }}" method="POST">
                 @csrf
                 <fieldset>
-                    <label for="label">Label :<label>
+                    <label for="label">Label:<label>
                     </br>
                     <input type="text" name="label">
                     </br>
@@ -31,7 +31,7 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     </br>
-                    <input type="submit" value="Send">
+                    <input type="submit" class="submit" value="Send">
                 </fieldset>
             </form>
         </div>

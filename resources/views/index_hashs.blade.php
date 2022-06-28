@@ -22,10 +22,10 @@
                 <fieldset>
                     <form action="{{ route('hashs.destroy', ['id' => $hashtag->id]) }}" method="POST">
                         @csrf
-                        <button type="submit">Delete</button>
+                        <button type="submit" class="submit">Delete</button>
                     </form>
                     <h2>{{ $hashtag->label }}</h2>
-                    <p>Linked images :</p>
+                    <p>Linked images:</p>
                     <div class="flex">
                         @foreach ($images as $image)
                             @if ($image->id == $hashtag->id)

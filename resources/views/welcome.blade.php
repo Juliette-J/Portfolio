@@ -12,8 +12,7 @@
 
         <title>JJ's Portfolio</title>
     </head>
-
-    <body>
+    <body class="portfolio_background">
         <nav class="top_container">
             <div class="top_left_container">
                 <a href="/login" class="top_left">{{ __("Log In") }}</a>
@@ -24,7 +23,8 @@
             </div>
         </nav>
         <fieldset class="bannière">
-            <h1>Portfolio</h1>
+            <h1></h1>
+            <script type="text/javascript" src="{{asset('js/title.js')}}"> </script>
         </fieldset>
         </br>
         <nav>

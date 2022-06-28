@@ -21,13 +21,13 @@
             @foreach ($images as $image)
                 <fieldset class="flex_children">
                     <img  src="{{ $image->path }}" id="{{ $image->id_image }}" class="image"/>
-                    <p>Link.s :</p>
+                    <p>Link.s:</p>
                     @foreach ($links as $link)
                         @if ($link->id_image == $image->id)
                             <h2>{{ $link->label}}</h2>
                             <form action="{{ route('links.destroy', ['id' => $link->id]) }}" method="POST">
                                 @csrf
-                                <button type="submit">Delete</button>
+                                <button type="submit" class="submit">Delete</button>
                             </form>
                         @endif
                     @endforeach

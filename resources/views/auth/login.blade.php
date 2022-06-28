@@ -14,7 +14,7 @@
                 @csrf
                 <fieldset>
                     </br>
-                    <label for="email">Email :</label>
+                    <label for="email">Email:</label>
                     </br>
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                     @error('email')
@@ -25,7 +25,7 @@
                     @enderror
                     </br></br>
 
-                    <label for="password">Password :</label>
+                    <label for="password">Password:</label>
                     </br>
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                     </br></br></br>
@@ -38,7 +38,7 @@
                     @enderror
 
                     <div class="btn_login">
-                        <button type="submit">Go !</button>
+                        <button type="submit" class="submit">Go!</button>
                     </div>
 
                     <!-- <div class="form-check">
@@ -52,7 +52,7 @@
         </div>
         <div class="flex">
             @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}" class="flex_children">Forgot your password ?</a>
+                <a href="{{ route('password.request') }}" class="flex_children">Forgot your password?</a>
             @endif
         </div>
     </div>

@@ -58,7 +58,7 @@
                                 @endforeach
                             </ul>
                         </fieldset>
-                        <input type="submit" value="Link">
+                        <input type="submit" class="submit" value="Link">
                     </fieldset>
                 </div>
             </form>

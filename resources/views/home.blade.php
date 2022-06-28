@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card-body">
         <fieldset>
-            <h2>Add something ?</h2>
+            <h2>Add something?</h2>
             </br>
             <nav>
                 <a href="{{ route('images.create') }}" alt="">An image</a>
@@ -15,7 +15,7 @@
         </fieldset>
         </br>
         <fieldset>
-            <h2>Update / delete ?</h2>
+            <h2>Update or delete?</h2>
             </br>
             <nav>
                 <a href="{{ route('images.list') }}" alt="">An image</a>

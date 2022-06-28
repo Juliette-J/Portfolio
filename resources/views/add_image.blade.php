@@ -24,7 +24,7 @@
                 @csrf
                 <fieldset>
                     </br>
-                    <label for="title">Title :<label>
+                    <label for="title">Title:<label>
                     </br>
                     <input type="text" name="title">
                     </br>
@@ -32,7 +32,7 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     </br>
-                    <label for="path">Path :<label>
+                    <label for="path">Path:<label>
                     </br>
                     <input type="text" name="path">
                     </br>
@@ -40,7 +40,7 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     </br>
-                    <label for="date">Date :<label>
+                    <label for="date">Date:<label>
                     </br>
                     <input type="date" name="date">
                     </br>
@@ -48,7 +48,7 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     </br>
-                    <label for="en_description">English description :<label>
+                    <label for="en_description">English description:<label>
                     </br>
                     <textarea name="desc">...</textarea>
                     </br>
@@ -56,7 +56,7 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     </br>
-                    <label for="fr_description">French description :<label>
+                    <label for="fr_description">French description:<label>
                     </br>
                     <textarea name="desc_fr">...</textarea>
                     </br>
@@ -64,13 +64,13 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     </br>
-                    <label for="type">Type :<label>
+                    <label for="type">Type:<label>
                     @foreach ($types as $type)
                         <input type="radio" name="id_type" value="{{$type->id}}">
                         <label for="{{$type->name}}">{{$type->name}}     </label>
                     @endforeach
                     </br></br>
-                    <input type="submit" value="Send">
+                    <input type="submit" class="submit" value="Send">
                 </fieldset>
             </form>
         </div>

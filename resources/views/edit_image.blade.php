@@ -29,7 +29,7 @@
                 <fieldset>
                     <img  src="{{ $image->path }}" id="{{ $image->id }}" class="image"/>
                     </br></br>
-                    <label for="title">Title :<label>
+                    <label for="title">Title:<label>
                     </br>
                     <input type="text" name="title" value="{{$image->title}}">
                     </br>
@@ -38,7 +38,7 @@
                     @enderror
 
                     </br>
-                    <label for="path">Path :<label>
+                    <label for="path">Path:<label>
                     </br>
                     <input type="text" name="path" value="{{$image->path}}">
                     </br>
@@ -47,13 +47,13 @@
                     @enderror
 
                     </br>
-                    <label for="date">Date :<label>
+                    <label for="date">Date:<label>
                     </br>
                     <input type="date" name="date" value="{{$image->date}}">
                     </br>
 
                     </br>
-                    <label for="en_description">English description :<label>
+                    <label for="en_description">English description:<label>
                     </br>
                     <textarea name="desc">{{$image->desc}}</textarea>
                     </br>
@@ -62,7 +62,7 @@
                     @enderror
 
                     </br>
-                    <label for="fr_description">French description :<label>
+                    <label for="fr_description">French description:<label>
                     </br>
                     <textarea name="desc_fr">{{$image->desc_fr}}</textarea>
                     </br>
@@ -72,13 +72,13 @@
                     @enderror
 
                     </br>
-                    <label for="type">Type :<label>
+                    <label for="type">Type:<label>
                     @foreach ($types as $type)
                         <input type="radio" name="id_type" value="{{$type->id}}" checked="{{ $type->id == $image->id_type }}">
                         <label for="{{$type->name}}">{{$type->name}}</label>
                     @endforeach 
                     </br></br>
-                    <input type="submit" value="Send">
+                    <input type="submit" class="submit" value="Send">
                 </fieldset>
             </form>
         </div>

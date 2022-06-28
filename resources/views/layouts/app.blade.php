@@ -45,7 +45,7 @@
                         <h1 class="admin_title">{{ session('succes') }}</h1>
                     </div>
                 @else
-                    <h1 class="admin_title">Hi {{ Auth::user()->name }} !</h1>
+                    <h1 class="admin_title">Hi {{ Auth::user()->name }}!</h1>
                 @endif
                 <!-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }} </a> -->
