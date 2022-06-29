@@ -21,7 +21,6 @@ for(var i = 0; i < hash_buttons.length; i++){
     });
 }
 
- 
 
 
 

@@ -29,12 +29,12 @@ class ViewController extends Controller
                 $image_hashs_query->join('types', 'images.id_type', 'types.id')->select('images.*')->where('types.slug',$type);
             }
 
-            return view('portfolio', [
+            return view('portfolio_bis', [
                 'images' => $image_hashs_query->get()
             ]);
         }
 
-        return view('portfolio', [
+        return view('portfolio_bis', [
             'images' => $images_query->get()
         ]);
     }

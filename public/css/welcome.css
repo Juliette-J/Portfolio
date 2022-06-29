@@ -144,7 +144,7 @@ button, .submit {
   right: 0;
   border: 0;
 }
-button:hover, .submit:hover {
+button:hover, button:focus, button:active, .submit:hover {
   background-color: rgb(233, 233, 233);
   transition: 0.3s;
 }
