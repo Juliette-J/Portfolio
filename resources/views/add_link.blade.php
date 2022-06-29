@@ -22,9 +22,9 @@
         <div class="flex"> 
             <form action="{{ route('links.store') }}" method="POST">
                 @csrf
-                <div class="flex">
+                <div class="masonry">
                     @foreach ($images as $image)
-                        <fieldset>
+                        <fieldset class="miniature">
                             </br>
                             <input type="radio" name="id_image" value="{{$image->id}}">
                             <label for="{{$image->title}}">{{$image->title}}</label>

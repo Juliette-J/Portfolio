@@ -18,9 +18,9 @@
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
         <h1 class="admin_title">UPDATE / DELETE</h1>
-        <div class="flex">
+        <div class="masonry">
             @foreach ($images as $image)
-                <fieldset class="flex_children">
+                <fieldset class="miniature">
                     <div>
                         <img  src="{{ $image->path }}" id="{{ $image->id }}" class="image"/>
                     </div>

@@ -17,9 +17,9 @@
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
         <h1 class="admin_title">DELETE LINK</h1>
-        <div class="flex">
+        <div class="masonry">
             @foreach ($images as $image)
-                <fieldset class="flex_children">
+                <fieldset class="miniature">
                     <img  src="{{ $image->path }}" id="{{ $image->id_image }}" class="image"/>
                     <p>Link.s:</p>
                     @foreach ($links as $link)

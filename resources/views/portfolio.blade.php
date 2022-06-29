@@ -22,8 +22,7 @@
             </div>
         </nav>
         <fieldset class="bannière">
-            <h1></h1>
-            <script type="text/javascript" src="{{asset('js/title.js')}}"> </script>
+            <h1>Portfolio</h1>
         </fieldset>
         </br>
         <nav>
@@ -43,17 +42,19 @@
         </div>
         <script type="text/javascript" src="{{asset('js/hash_url.js')}}"> </script>
         </br>
-        <div class="flex">
+        <div class="masonry">
             @foreach ($images as $image)
-                <div class="miniature">
+                <div class="miniature_masonry">
                     <img  src="{{ $image->path }}" id="{{ $image->id }}" class="image"/>
                     <button type="button" id="{{ $image->id . '-button'}}" class="button-desc">+</button>
                 </div>
+
                 <!-- Modale Image -->
                 <div id="{{ $image->id . '-modal-img'}}" class="modal-img">
                     <span class="close-img" id="{{ $image->id . '-close-img'}}">&times;</span>
                     <img class="modal-content-img" id="{{ $image->id . '-fullsize'}}">
                 </div>
+                
                 <!-- Modale Description -->
                 <div class="modal-desc" id="{{ $image->id . '-button-modal-desc'}}" >
                     <span class="close-desc" id="{{ $image->id . '-button-close-desc'}}">&times;</span>

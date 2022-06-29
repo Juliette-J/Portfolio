@@ -40,6 +40,7 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
+                </br>
                 @if ( session('succes') )
                     <div class="alert alert-succes">
                         <h1 class="admin_title">{{ session('succes') }}</h1>

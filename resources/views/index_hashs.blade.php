@@ -17,9 +17,9 @@
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
         <h1 class="admin_title">DELETE HASHTAG</h1>
-        <div class="flex">
+        <div class="masonry">
             @foreach ($hashtags as $hashtag)
-                <fieldset>
+                <fieldset class="miniature">
                     <form action="{{ route('hashs.destroy', ['id' => $hashtag->id]) }}" method="POST">
                         @csrf
                         <button type="submit" class="submit">Delete</button>

@@ -15,7 +15,7 @@
         </fieldset>
         </br>
         <fieldset>
-            <h2>Update or delete?</h2>
+            <h2>Update | Delete?</h2>
             </br>
             <nav>
                 <a href="{{ route('images.list') }}" alt="">An image</a>
