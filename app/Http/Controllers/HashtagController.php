@@ -18,9 +18,9 @@ class HashtagController extends Controller
         $hashtags = new Hashtag();
         $hashtags->label = $request->input('label');
         if($hashtags->save()) {
-            return redirect()->route('home.admin')->with('succes', 'Successfully stored !');
+            return redirect()->route('hashs.create')->with('succes', 'Successfully stored !');
         }
-        return redirect()->route('home.admin')->with('error', 'Error...');
+        return redirect()->route('hashs.create')->with('error', 'Error...');
     }
 
     public function index() {
@@ -35,9 +35,9 @@ class HashtagController extends Controller
     public function destroy($id) {
         LinkImageHashs::where('image_hashs.id_hashtag', $id)->delete();
         if(Hashtag::find($id)->delete()) {
-            return redirect()->route('home.admin')->with('succes', 'Successfully deleted !');
+            return redirect()->route('hashs.list')->with('succes', 'Successfully deleted !');
         }
-        return redirect()->route('home.admin')->with('error', 'Error...');
+        return redirect()->route('hashs.list')->with('error', 'Error...');
     }
 
     /* Pas utilisées */

@@ -21,9 +21,9 @@ class LinkImageHashsController extends Controller
         $link->id_hashtag = $request->input('id_hashtag');
         //dd($link);
         if($link->save()) {
-            return redirect()->route('home.admin')->with('succes', 'Successfully stored !');
+            return redirect()->route('links.create')->with('succes', 'Successfully stored !');
         }
-        return redirect()->route('home.admin')->with('error', 'Error...');
+        return redirect()->route('links.create')->with('error', 'Error...');
     }
 
     public function index() {
@@ -35,24 +35,23 @@ class LinkImageHashsController extends Controller
         ]);
     }
 
+    public function destroy($id) {
+        if(LinkImageHashs::find($id)->delete()) {
+            return redirect()->route('links.list')->with('succes', 'Successfully deleted !');
+        }
+        return redirect()->route('links.list')->with('error', 'Error...');
+    }
+    
+    /* Pas utilisées */
+    public function show(LinkImageHashs $link) {
+        return $link;
+    }
     public function update(LinkImageHashsRequest $request, $id) {
         $link = LinkImageHashs::find($id);
         if($link->fill($request->all())->save()) {
             return redirect()->route('home.admin')->with('succes', 'Successfully updated !');
         }
         return redirect()->route('home.admin')->with('error', 'Error...');
-    }
-
-    public function destroy($id) {
-        if(LinkImageHashs::find($id)->delete()) {
-            return redirect()->route('home.admin')->with('succes', 'Successfully deleted !');
-        }
-        return redirect()->route('home.admin')->with('error', 'Error...');
-    }
-    
-    /* Pas utilisée */
-    public function show(LinkImageHashs $link) {
-        return $link;
     }
 }
 

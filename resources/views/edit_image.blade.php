@@ -17,17 +17,24 @@
         <div class="top_left_container">
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
-        <h1 class="admin_title">UPDATE IMAGE</h1>
+
         @if ( session('succes') )
             <div class="alert alert-succes">
-                <h3>{{ session('succes') }}</h3>
+                <h1 class="admin_title">{{ session('succes') }}</h1>
             </div>
+        @elseif( session('error') )
+            <div class="alert alert-error">
+                <h1 class="admin_title">{{ session('error') }}</h1>
+            </div>
+        @else
+            <h1 class="admin_title">UPDATE IMAGE</h1>
         @endif
+
         <div class="flex">
             <form action="{{ route('images.update', ['id' => $image->id]) }}" method="POST">
                 @csrf
                 <fieldset>
-                    <img  src="{{ $image->path }}" id="{{ $image->id }}" class="image"/>
+                    <img  src="{{ $image->path }}" id="{{ $image->id }}" class="small_img"/>
                     </br></br>
                     <label for="title">Title:<label>
                     </br>

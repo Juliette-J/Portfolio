@@ -23,9 +23,9 @@ class ImageController extends Controller
         $images->desc_fr = $request->input('fr_desc');
         $images->id_type = $request->input('id_type');
         if($images->save()) {
-            return redirect()->route('home.admin')->with('succes', 'Successfully stored !');
+            return redirect()->route('images.create')->with('succes', 'Successfully stored !');
         }
-        return redirect()->route('home.admin')->with('error', 'Error...');
+        return redirect()->route('images.create')->with('error', 'Error...');
     }
 
     public function index() {
@@ -53,9 +53,9 @@ class ImageController extends Controller
     public function destroy($id) {
         LinkImageHashs::where('image_hashs.id_image', $id)->delete();
         if(Image::find($id)->delete()) {
-            return redirect()->route('home.admin')->with('succes', 'Successfully deleted !');
+            return redirect()->route('images.list')->with('succes', 'Successfully deleted !');
         }
-        return redirect()->route('home.admin')->with('error', 'Error...');
+        return redirect()->route('images.list')->with('error', 'Error...');
     }
     
     /* Pas utilisée */

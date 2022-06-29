@@ -40,14 +40,7 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
-                </br>
-                @if ( session('succes') )
-                    <div class="alert alert-succes">
-                        <h1 class="admin_title">{{ session('succes') }}</h1>
-                    </div>
-                @else
-                    <h1 class="admin_title">Hi {{ Auth::user()->name }}!</h1>
-                @endif
+                <h1 class="admin_title">Hi {{ Auth::user()->name }}!</h1>
                 <!-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }} </a> -->
             @endguest

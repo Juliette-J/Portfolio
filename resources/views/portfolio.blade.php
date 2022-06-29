@@ -44,7 +44,7 @@
         </br>
         <div class="masonry">
             @foreach ($images as $image)
-                <div class="miniature_masonry">
+                <div class="miniature">
                     <img  src="{{ $image->path }}" id="{{ $image->id }}" class="image"/>
                     <button type="button" id="{{ $image->id . '-button'}}" class="button-desc">+</button>
                 </div>

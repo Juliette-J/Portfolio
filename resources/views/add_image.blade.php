@@ -17,8 +17,19 @@
         <div class="top_left_container">
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
-        </br>
-        <h1 class="admin_title">NEW IMAGE</h1>
+
+        @if ( session('succes') )
+            <div class="alert alert-succes">
+                <h1 class="admin_title">{{ session('succes') }}</h1>
+            </div>
+        @elseif( session('error') )
+            <div class="alert alert-error">
+                <h1 class="admin_title">{{ session('error') }}</h1>
+            </div>
+        @else
+            <h1 class="admin_title">NEW IMAGE</h1>
+        @endif
+        
         <div class="card-body">
             <form action="{{ route('images.store') }}" method="POST">
                 @csrf

@@ -5,7 +5,6 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LinkImageHashsController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\ViewController;
-use App\Models\LinkImageHashs;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -56,8 +55,8 @@ Route::group(['prefix' => 'admin/hashs'],function(){
 
 Route::group(['prefix' => 'admin/links'],function(){
     /* ADD LINK */
-    Route::post('/', [LinkImageHashsController::class, 'store'])->name('links.store');
     Route::get('/create',[LinkImageHashsController::class, 'create'])->name('links.create');
+    Route::post('/', [LinkImageHashsController::class, 'store'])->name('links.store');
 
     /* DELETE LINK */
     Route::get('/', [LinkImageHashsController::class, 'index'])->name('links.list'); // Listing des links
@@ -67,4 +66,4 @@ Route::group(['prefix' => 'admin/links'],function(){
 /* Vue publique */
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
