@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,4 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:auth')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('/portfolio', function() {
+    return Image::all()->json();
 });

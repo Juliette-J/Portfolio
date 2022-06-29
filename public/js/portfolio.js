@@ -1,10 +1,11 @@
 const img = document.getElementById('img');
 
-fetch('/portfolio')
+fetch('/api/portfolio')
   .then(response => {
       if(response.ok) {
           console.log(response)
-          response.json().then(data => {
+          //response.json()
+          .then(data => {
               img.src = data[0].path
           })
       } else {
