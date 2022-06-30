@@ -28,8 +28,8 @@
         <nav>
             <a href="/">{{ __("Homepage") }}</a> 
             </br>
-            <a href="/portfolio/dessin">{{ __("Drawings") }}</a>
-            <a href="/portfolio/photo">{{ __("Photos") }}</a>
+            <a href="/portfolio/dessin" id="dessin" class="type_link">{{ __("Drawings") }}</a>
+            <a href="/portfolio/photo" id="photo" class="type_link">{{ __("Photos") }}</a>
             </br>
             <a href="/portfolio">{{ __("Back") }}</a>
         </nav>
@@ -42,9 +42,9 @@
         </div>
         <script type="text/javascript" src="{{asset('js/hash_url.js')}}"> </script>
         
-        <img src="" alt="" id="img">
+        <div id="galery" class="masonry"></div>
         <script type="text/javascript" src="{{asset('js/portfolio.js')}}"> </script>
-        
+
     </body>
     <footer>
         <div class="footer-block"> Portfolio 2022 - Juliette Jeannin </div>
