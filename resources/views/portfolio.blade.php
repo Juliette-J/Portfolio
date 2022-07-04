@@ -28,48 +28,22 @@
         <nav>
             <a href="/">{{ __("Homepage") }}</a> 
             </br>
-            <a href="/portfolio/dessin">{{ __("Drawings") }}</a>
-            <a href="/portfolio/photo">{{ __("Photos") }}</a>
+            <a href="#dessin" data-type="dessin" class="type_link">{{ __("Drawings") }}</a>
+            <a href="#photo" data-type="photo" class="type_link">{{ __("Photos") }}</a>
             </br>
             <a href="/portfolio">{{ __("Back") }}</a>
         </nav>
         </br></br>
         <div class="hash_labels">
-            <button type="button" id="IMAC" class="hash_btn">#IMAC</button>
-            <button type="button" id="ESIPE" class="hash_btn">#ESIPE</button>
-            <button type="button" id="Paris" class="hash_btn">#Paris</button>
-            <button type="button" id="Nantes" class="hash_btn">#Nantes</button>
+            <button type="button" data-hashtag="IMAC" id="IMAC" class="hash_btn">#IMAC</button>
+            <button type="button" data-hashtag="ESIPE" id="ESIPE" class="hash_btn">#ESIPE</button>
+            <button type="button" data-hashtag="Paris" id="Paris" class="hash_btn">#Paris</button>
+            <button type="button" data-hashtag="Nantes" id="Nantes" class="hash_btn">#Nantes</button>
         </div>
-        <script type="text/javascript" src="{{asset('js/hash_url.js')}}"> </script>
-        </br>
-        <div class="masonry">
-            @foreach ($images as $image)
-                <div class="miniature">
-                    <img  src="{{ $image->path }}" id="{{ $image->id }}" class="image"/>
-                    <button type="button" id="{{ $image->id . '-button'}}" class="button-desc">+</button>
-                </div>
+        
+        <div id="galery" class="masonry"></div>
+        <script type="text/javascript" src="{{asset('js/portfolio.js')}}"> </script>
 
-                <!-- Modale Image -->
-                <div id="{{ $image->id . '-modal-img'}}" class="modal-img">
-                    <span class="close-img" id="{{ $image->id . '-close-img'}}">&times;</span>
-                    <img class="modal-content-img" id="{{ $image->id . '-fullsize'}}">
-                </div>
-                
-                <!-- Modale Description -->
-                <div class="modal-desc" id="{{ $image->id . '-button-modal-desc'}}" >
-                    <span class="close-desc" id="{{ $image->id . '-button-close-desc'}}">&times;</span>
-                    <div class="modal-content-desc" id="{{ $image->id . '-button-desc'}}">
-                        <img src="{{ $image->path }}" class="img-desc" id="{{ $image->id }} .'-in-desc'"/>
-                        <h2>{{ $image->title }}</h2>
-                        <p>({{ $image->date }}) </p>
-                        <h3>{{ $image->desc }}</h3>
-                        <h3>{{ $image->desc_fr }}</h3>
-                    </div>
-                </div>
-                <script type="text/javascript" src="{{asset('js/modal.js')}}"> </script>
-            @endforeach
-        </div>
-        </br></br></br></br>
     </body>
     <footer>
         <div class="footer-block"> Portfolio 2022 - Juliette Jeannin </div>

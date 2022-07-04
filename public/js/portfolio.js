@@ -130,7 +130,6 @@ function fetchOnURL(url) {
                 response.json()
                 .then(data => {
                     data.forEach((img) => {
-                        //console.log(img)
                         createImageDiv(img);
                         createModalImageDiv(img);
                         onClickModalImage();
@@ -144,17 +143,61 @@ function fetchOnURL(url) {
         })
 }
 
-fetchOnURL('/api/portfolio/');
+function fetchAllOnURL(requestArray) {
+    var image;
+    Promise.all(requestArray.map(hashtag =>
+        fetch(`/api/portfolio?hashtag=${hashtag}`)
+        .then(response => {
+            if(response.ok) {
+                response.json()
+                .then(data => {
+                    data.forEach((img) => {
+                        createImageDiv(img);
+                        createModalImageDiv(img);
+                        onClickModalImage();
+                        createModalDescDiv(img);
+                        onClickModalDesc();
+                    })
+                })
+            } else {
+                console.log("ERREUR");
+            }
+        })))
+}
 
 /*
-var type_links = document.getElementsByClassName("type_link");
-for(var i = 0; i < type_links.length; i++){
-    const type_link = type_links.item(i);
-    if (type_link.addEventListener('click')) {
-       fetchOnURL('/api/portfolio/' + type_link.id);
-    };
-    else {
-        fetchOnURL('/api/portfolio/');
-    }
+const links = document.getElementsByClassName('type_link')
+for (let index = 0; index < links.length; index++) {
+    const element = links[index];
+    element.addEventListener("click", function(e) {
+        e.preventDefault();
+        document.getElementById('galery').innerHTML="";
+        fetchOnURL('/api/portfolio?type='+e.target.dataset.type)
+    })
+}*/
+
+
+const hashs = document.getElementsByClassName('hash_btn');
+var hashs_selected = [];
+for (let index = 0; index < hashs.length; index++) {
+    const element = hashs[index];
+    element.addEventListener("click", function(e) {
+        e.preventDefault();
+        if(hashs_selected.includes(this.id)){
+            hashs_selected = hashs_selected.filter(hashtag => hashtag !== this.id)
+        }else{
+            hashs_selected.push(this.id);
+        }
+
+        document.getElementById('galery').innerHTML="";
+        console.log(hashs_selected);
+        if(hashs_selected != []) {
+            fetchAllOnURL(hashs_selected);
+        }
+        else {
+            fetchOnURL('/api/portfolio');
+        }
+    })
 }
-*/
+
+fetchOnURL('/api/portfolio');

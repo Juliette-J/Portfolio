@@ -27,10 +27,8 @@ Route::get('/home/admin', [App\Http\Controllers\HomeController::class, 'index'])
 Route::get('locale', [LocalizationController::class, 'getLang'])->name('lang.get');
 Route::get('locale/{lang}', [LocalizationController::class, 'setLang'])->name('lang.set');
 
-//Route::get('/portfolio/{type?}',[ViewController::class, "portfolio"]);
-
-Route::get('/portfolio/{type?}', function () {
-    return view('portfolio_bis');
+Route::get('/portfolio', function () {
+    return view('portfolio');
 });
 
 Route::group(['prefix' => 'admin/images'],function(){
