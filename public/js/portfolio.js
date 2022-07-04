@@ -182,14 +182,15 @@ for (let index = 0; index < hashs.length; index++) {
     element.addEventListener("click", function(e) {
         e.preventDefault();
         if(hashs_selected.includes(this.id)){
-            hashs_selected = hashs_selected.filter(hashtag => hashtag !== this.id)
+            hashs_selected = hashs_selected.filter(hashtag => hashtag !== this.id);
+            this.className="hash_btn";
         }else{
             hashs_selected.push(this.id);
+            this.className="hash_btn_selected";
         }
 
         document.getElementById('galery').innerHTML="";
-        console.log(hashs_selected);
-        if(hashs_selected != []) {
+        if(hashs_selected.length > 0) {
             fetchAllOnURL(hashs_selected);
         }
         else {
