@@ -123,7 +123,6 @@ function onClickModalDesc() {
 
 /* Galery */
 function fetchOnURL(url) {
-    var image;
     fetch(url)
         .then(response => {
             if(response.ok) {
@@ -144,7 +143,6 @@ function fetchOnURL(url) {
 }
 
 function fetchAllOnURL(requestArray) {
-    var image;
     Promise.all(requestArray.map(hashtag =>
         fetch(`/api/portfolio?hashtag=${hashtag}`)
         .then(response => {
@@ -165,7 +163,7 @@ function fetchAllOnURL(requestArray) {
         })))
 }
 
-/*
+/* Type */
 const links = document.getElementsByClassName('type_link')
 for (let index = 0; index < links.length; index++) {
     const element = links[index];
@@ -174,9 +172,9 @@ for (let index = 0; index < links.length; index++) {
         document.getElementById('galery').innerHTML="";
         fetchOnURL('/api/portfolio?type='+e.target.dataset.type)
     })
-}*/
+}
 
-
+/* Hashtags */
 const hashs = document.getElementsByClassName('hash_btn');
 var hashs_selected = [];
 for (let index = 0; index < hashs.length; index++) {
