@@ -35,9 +35,10 @@
         </nav>
         </br></br>
         <div class="hash_labels">
-            <button type="button" data-hashtag="IMAC" id="IMAC" class="hash_btn">#IMAC</button>
             <button type="button" data-hashtag="ESIPE" id="ESIPE" class="hash_btn">#ESIPE</button>
+            <button type="button" data-hashtag="IMAC" id="IMAC" class="hash_btn">#IMAC</button>
             <button type="button" data-hashtag="Paris" id="Paris" class="hash_btn">#Paris</button>
+            <button type="button" data-hashtag="Plage" id="Plage" class="hash_btn">#Plage</button>
             <button type="button" data-hashtag="Nantes" id="Nantes" class="hash_btn">#Nantes</button>
         </div>
         

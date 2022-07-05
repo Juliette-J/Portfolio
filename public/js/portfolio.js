@@ -129,11 +129,13 @@ function fetchOnURL(url) {
                 response.json()
                 .then(data => {
                     data.forEach((img) => {
-                        createImageDiv(img);
-                        createModalImageDiv(img);
-                        onClickModalImage();
-                        createModalDescDiv(img);
-                        onClickModalDesc();
+                        if(!document.getElementById(img.id + '-container')) {
+                            createImageDiv(img);
+                            createModalImageDiv(img);
+                            onClickModalImage();
+                            createModalDescDiv(img);
+                            onClickModalDesc();
+                        }
                     })
                 })
             } else {
@@ -150,11 +152,13 @@ function fetchAllOnURL(requestArray) {
                 response.json()
                 .then(data => {
                     data.forEach((img) => {
-                        createImageDiv(img);
-                        createModalImageDiv(img);
-                        onClickModalImage();
-                        createModalDescDiv(img);
-                        onClickModalDesc();
+                        if(!document.getElementById(img.id + '-container')) {
+                            createImageDiv(img);
+                            createModalImageDiv(img);
+                            onClickModalImage();
+                            createModalDescDiv(img);
+                            onClickModalDesc();
+                        }
                     })
                 })
             } else {
