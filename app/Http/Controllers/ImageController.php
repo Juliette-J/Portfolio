@@ -15,17 +15,18 @@ class ImageController extends Controller
     }
 
     public function store(ImageRequest $request) {
-        $images = new Image();
-        $images->title = $request->input('title');
-        $images->path = $request->input('path');
-        $images->date = $request->input('date');
-        $images->desc = $request->input('en_desc');
-        $images->desc_fr = $request->input('fr_desc');
-        $images->id_type = $request->input('id_type');
-        if($images->save()) {
-            return redirect()->route('images.create')->with('succes', 'Successfully stored !');
+        $image = new Image();
+        $image->title = $request->input('title');
+        $image->path = $request->input('path');
+        $image->date = $request->input('date');
+        $image->desc = $request->input('desc');
+        $image->desc_fr = $request->input('desc_fr');
+        $image->id_type = $request->input('id_type');
+        if($image->save()) {
+            //return redirect()->route('images.create')->with('succes', 'Successfully stored !');
+            return json_encode($image);
         }
-        return redirect()->route('images.create')->with('error', 'Error...');
+        return 'Error...';
     }
 
     public function index() {

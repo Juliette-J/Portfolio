@@ -21,9 +21,9 @@ class LinkImageHashsController extends Controller
         $link->id_hashtag = $request->input('id_hashtag');
         //dd($link);
         if($link->save()) {
-            return redirect()->route('links.create')->with('succes', 'Successfully stored !');
+            return json_encode($link);
         }
-        return redirect()->route('links.create')->with('error', 'Error...');
+        return 'Error...';
     }
 
     public function index() {

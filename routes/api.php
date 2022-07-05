@@ -1,9 +1,7 @@
 <?php
 
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ViewController;
-use App\Models\Image;
-use App\Models\LinkImageHashs;
-use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

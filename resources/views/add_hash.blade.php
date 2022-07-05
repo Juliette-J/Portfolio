@@ -17,21 +17,9 @@
         <div class="top_left_container">
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
-
-        @if ( session('succes') )
-            <div class="alert alert-succes">
-                <h1 class="admin_title">{{ session('succes') }}</h1>
-            </div>
-        @elseif( session('error') )
-            <div class="alert alert-error">
-                <h1 class="admin_title">{{ session('error') }}</h1>
-            </div>
-        @else
-            <h1 class="admin_title">NEW HASHTAG</h1>
-        @endif
-        
+        <h1 class="admin_title">NEW HASHTAG</h1>
         <div class="card-body">
-            <form action="{{ route('hashs.store') }}" method="POST">
+            <form id="form" onsubmit="return post('/admin/hashs/store')">
                 @csrf
                 <fieldset>
                     <label for="label">Label:<label>
@@ -45,6 +33,7 @@
                     <input type="submit" class="submit" value="Send">
                 </fieldset>
             </form>
+            <script type="text/javascript" src="{{asset('js/post.js')}}"> </script>
         </div>
     </body>
     <footer>

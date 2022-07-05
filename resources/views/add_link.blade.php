@@ -17,21 +17,9 @@
         <div class="top_left_container">
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
-        
-        @if ( session('succes') )
-            <div class="alert alert-succes">
-                <h1 class="admin_title">{{ session('succes') }}</h1>
-            </div>
-        @elseif( session('error') )
-            <div class="alert alert-error">
-                <h1 class="admin_title">{{ session('error') }}</h1>
-            </div>
-        @else
-            <h1 class="admin_title">NEW LINK</h1>
-        @endif
-
+        <h1 class="admin_title">NEW LINK</h1>
         <div class="flex"> 
-            <form action="{{ route('links.store') }}" method="POST">
+            <form id="form" onsubmit="return post('/admin/links/store')">
                 @csrf
                 <div class="masonry">
                     @foreach ($images as $image)
@@ -73,6 +61,7 @@
                     </fieldset>
                 </div>
             </form>
+            <script type="text/javascript" src="{{asset('js/post.js')}}"> </script>
         </div>
         </br></br></br>
     </body>

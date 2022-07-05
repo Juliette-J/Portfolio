@@ -34,7 +34,7 @@ Route::get('/portfolio', function () {
 Route::group(['prefix' => 'admin/images'],function(){
     /* ADD IMAGE */
     Route::get('/create', [ImageController::class, 'create'])->name('images.create'); // Formulaire d'ajout d'image
-    Route::post('/', [ImageController::class, "store"])->name('images.store'); // Ajout d'image
+    Route::post('/store', [ImageController::class, "store"])->name('images.store'); // Ajout d'image
 
     /* UPDATE IMAGE */
     Route::get('/', [ImageController::class, 'index'])->name('images.list'); // Listing des images
@@ -48,7 +48,7 @@ Route::group(['prefix' => 'admin/images'],function(){
 Route::group(['prefix' => 'admin/hashs'],function(){
     /* ADD HASH */
     Route::get('/create',[HashtagController::class, 'create'])->name('hashs.create');
-    Route::post('/', [HashtagController::class, 'store'])->name('hashs.store');
+    Route::post('/store', [HashtagController::class, 'store'])->name('hashs.store');
 
     /* DELETE HASH */
     Route::get('/', [HashtagController::class, 'index'])->name('hashs.list'); // Listing des hashtags
@@ -58,7 +58,7 @@ Route::group(['prefix' => 'admin/hashs'],function(){
 Route::group(['prefix' => 'admin/links'],function(){
     /* ADD LINK */
     Route::get('/create',[LinkImageHashsController::class, 'create'])->name('links.create');
-    Route::post('/', [LinkImageHashsController::class, 'store'])->name('links.store');
+    Route::post('/store', [LinkImageHashsController::class, 'store'])->name('links.store');
 
     /* DELETE LINK */
     Route::get('/', [LinkImageHashsController::class, 'index'])->name('links.list'); // Listing des links

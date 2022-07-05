@@ -17,27 +17,15 @@
         <div class="top_left_container">
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
-
-        @if ( session('succes') )
-            <div class="alert alert-succes">
-                <h1 class="admin_title">{{ session('succes') }}</h1>
-            </div>
-        @elseif( session('error') )
-            <div class="alert alert-error">
-                <h1 class="admin_title">{{ session('error') }}</h1>
-            </div>
-        @else
-            <h1 class="admin_title">NEW IMAGE</h1>
-        @endif
-        
+        <h1 class="admin_title">NEW IMAGE</h1>
         <div class="card-body">
-            <form action="{{ route('images.store') }}" method="POST">
+            <form id="form" onsubmit="return post('/admin/images/store')">
                 @csrf
                 <fieldset>
                     </br>
                     <label for="title">Title:<label>
                     </br>
-                    <input type="text" name="title">
+                    <input type="text" name="title" id="title">
                     </br>
                     @error('title')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -45,7 +33,7 @@
                     </br>
                     <label for="path">Path:<label>
                     </br>
-                    <input type="text" name="path">
+                    <input type="text" name="path" id="path">
                     </br>
                     @error('path')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -53,7 +41,7 @@
                     </br>
                     <label for="date">Date:<label>
                     </br>
-                    <input type="date" name="date">
+                    <input type="date" name="date" id="date">
                     </br>
                     @error('date')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -61,7 +49,7 @@
                     </br>
                     <label for="en_description">English description:<label>
                     </br>
-                    <textarea name="desc">...</textarea>
+                    <textarea name="desc" id="desc">...</textarea>
                     </br>
                     @error('en_description')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -69,7 +57,7 @@
                     </br>
                     <label for="fr_description">French description:<label>
                     </br>
-                    <textarea name="desc_fr">...</textarea>
+                    <textarea name="desc_fr" id="desc_fr">...</textarea>
                     </br>
                     @error('fr_description')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -77,13 +65,14 @@
                     </br>
                     <label for="type">Type:<label>
                     @foreach ($types as $type)
-                        <input type="radio" name="id_type" value="{{$type->id}}">
-                        <label for="{{$type->name}}">{{$type->name}}     </label>
+                        <input type="radio" name="id_type" id="{{$type->id}}" value="{{$type->id}}">
+                        <label for="{{$type->name}}">{{$type->name}}</label>
                     @endforeach
                     </br></br>
                     <input type="submit" class="submit" value="Send">
                 </fieldset>
             </form>
+            <script type="text/javascript" src="{{asset('js/post.js')}}"> </script>
         </div>
         </br></br></br></br>
     </body>

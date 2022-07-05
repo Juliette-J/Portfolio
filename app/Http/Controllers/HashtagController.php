@@ -15,12 +15,12 @@ class HashtagController extends Controller
     }
 
     public function store(HashtagRequest $request) {
-        $hashtags = new Hashtag();
-        $hashtags->label = $request->input('label');
-        if($hashtags->save()) {
-            return redirect()->route('hashs.create')->with('succes', 'Successfully stored !');
+        $hashtag = new Hashtag();
+        $hashtag->label = $request->input('label');
+        if($hashtag->save()) {
+            return json_encode($hashtag);
         }
-        return redirect()->route('hashs.create')->with('error', 'Error...');
+        return 'Error...';
     }
 
     public function index() {

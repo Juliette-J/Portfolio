@@ -13,12 +13,8 @@ class ViewController extends Controller
         $image_query = Image::query();
 
         if($request->has('hashtag')) {
-            //$hashtags = $request->get('hashtags');
-            
             $image_hashs_query->join('images', 'image_hashs.id_image', 'images.id')->join('hashtags', 'image_hashs.id_hashtag', 'hashtags.id')->select('images.*');
-            //foreach($hashtags as $hashtag) {
-            $image_hashs_query->where('hashtags.label', $request->get('hashtag')); //$hashtag
-            //}
+            $image_hashs_query->where('hashtags.label', $request->get('hashtag')); 
             if($request->has('type')) {
                 $image_hashs_query->join('types', 'images.id_type', 'types.id')->select('images.*')->where('types.slug', $request->get('type'));
             }
