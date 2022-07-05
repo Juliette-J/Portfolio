@@ -30,7 +30,8 @@
             <h1 class="admin_title">UPDATE / DELETE</h1>
         @endif
         
-        <div class="masonry">
+        <div id="index" class="masonry">
+        {{--
             @foreach ($images as $image)
                 <fieldset class="miniature">
                     <div>
@@ -45,8 +46,9 @@
                         </form>
                     </div>
                 </fieldset>
-            @endforeach
+            @endforeach --}}
         </div>
+        <script type="text/javascript" src="{{asset('js/index.js')}}"> </script>
         </br></br></br>
     </body>
     <footer>

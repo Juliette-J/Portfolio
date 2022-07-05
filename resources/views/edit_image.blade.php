@@ -15,7 +15,7 @@
 
     <body class="app_background">
         <div class="top_left_container">
-            <a href="/home/admin" class="top_left" alt="">Back</a>
+            <a href="/admin/images" class="top_left" alt="">Back</a>
         </div>
 
         @if ( session('succes') )

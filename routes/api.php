@@ -22,3 +22,5 @@ Route::middleware('auth:auth')->get('/user', function (Request $request) {
 });
 
 Route::get('/portfolio', [ViewController::class, 'index'])->name('portfolio');
+
+Route::get('/admin/images', [ImageController::class, 'index']);

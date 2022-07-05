@@ -4,7 +4,6 @@ use App\Http\Controllers\HashtagController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LinkImageHashsController;
 use App\Http\Controllers\LocalizationController;
-use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -37,7 +36,10 @@ Route::group(['prefix' => 'admin/images'],function(){
     Route::post('/store', [ImageController::class, "store"])->name('images.store'); // Ajout d'image
 
     /* UPDATE IMAGE */
-    Route::get('/', [ImageController::class, 'index'])->name('images.list'); // Listing des images
+    Route::get('/', function() {
+        return view('index_images');
+    })->name('images.list'); // Listing des images
+
     Route::get('/{id}/edit', [ImageController::class, 'edit'])->name('images.edit'); // Formulaire de modification d'image
     Route::post('/{id}/edit', [ImageController::class, 'update'])->name('images.update'); // Envoi du formulaire
 

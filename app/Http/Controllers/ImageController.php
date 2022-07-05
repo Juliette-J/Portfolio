@@ -23,15 +23,13 @@ class ImageController extends Controller
         $image->desc_fr = $request->input('desc_fr');
         $image->id_type = $request->input('id_type');
         if($image->save()) {
-            //return redirect()->route('images.create')->with('succes', 'Successfully stored !');
             return json_encode($image);
         }
         return 'Error...';
     }
 
     public function index() {
-        $images = Image::get();
-        return view('index_images', ['images' => $images]);
+        return Image::get();
     }
 
     public function edit($id) {
