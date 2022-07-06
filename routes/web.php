@@ -33,39 +33,25 @@ Route::get('/portfolio', function () {
 Route::group(['prefix' => 'admin/images'],function(){
     /* ADD IMAGE */
     Route::get('/create', [ImageController::class, 'create'])->name('images.create'); // Formulaire d'ajout d'image
-    Route::post('/store', [ImageController::class, "store"])->name('images.store'); // Ajout d'image
-
+    /* INDEX IMAGE */
+    Route::get('/', function() { return view('index_images'); })->name('images.list'); // Listing des images
     /* UPDATE IMAGE */
-    Route::get('/', function() {
-        return view('index_images');
-    })->name('images.list'); // Listing des images
-
     Route::get('/{id}/edit', [ImageController::class, 'edit'])->name('images.edit'); // Formulaire de modification d'image
-    Route::post('/{id}/edit', [ImageController::class, 'update'])->name('images.update'); // Envoi du formulaire
-
-    /* DELETE IMAGE */
-    Route::post('/{id}/delete', [ImageController::class, 'destroy'])->name('images.destroy');
 });
 
 Route::group(['prefix' => 'admin/hashs'],function(){
     /* ADD HASH */
     Route::get('/create',[HashtagController::class, 'create'])->name('hashs.create');
-    Route::post('/store', [HashtagController::class, 'store'])->name('hashs.store');
-
-    /* DELETE HASH */
+    /* INDEX HASH */
     Route::get('/', [HashtagController::class, 'index'])->name('hashs.list'); // Listing des hashtags
-    Route::post('/{id}/delete', [HashtagController::class, 'destroy'])->name('hashs.destroy');
 });
 
 Route::group(['prefix' => 'admin/links'],function(){
     /* ADD LINK */
     Route::get('/create',[LinkImageHashsController::class, 'create'])->name('links.create');
-    Route::post('/store', [LinkImageHashsController::class, 'store'])->name('links.store');
-
-    /* DELETE LINK */
+    /* INDEX LINK */
     Route::get('/', [LinkImageHashsController::class, 'index'])->name('links.list'); // Listing des links
-    Route::post('/{id}/delete', [LinkImageHashsController::class, 'destroy'])->name('links.destroy');
-});
+  });
 
 /* Vue publique */
 Route::get('/', function () {

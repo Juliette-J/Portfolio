@@ -23,7 +23,7 @@ function post_update() {
     var data = new FormData(form);
     var xhr = new XMLHttpRequest();
     var img = document.getElementsByClassName('small_img')[0];
-    xhr.open("POST", "/admin/images/" + img.id + "/edit");
+    xhr.open("POST", "/api/admin/images/" + img.id + "/edit");
     //xhr.onload = function () { console.log(this.response); };
     xhr.send(data);
     alert('Successfully sent!');
@@ -38,11 +38,10 @@ function post_delete(id) {
     });
 
     var data = new FormData(form);
-    console.log(data);
-    document.querySelector('meta[name="csrf-token"]')['content'];
+    document.querySelector('input[name="csrftoken"]')['value'];
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/admin/images/" + id + "/delete");
-    //xhr.onload = function () { console.log(this.response); };
+    xhr.open("POST", "/api/admin/images/" + id + "/delete");
+    xhr.onload = function () { console.log(this.response); };
     xhr.send(data);
     alert('Successfully deleted!');
 

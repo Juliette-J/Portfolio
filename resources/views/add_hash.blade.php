@@ -19,7 +19,7 @@
         </div>
         <h1 class="admin_title">NEW HASHTAG</h1>
         <div class="card-body">
-            <form id="form" onsubmit="return post('/admin/hashs/store')">
+            <form id="form" onsubmit="return post_add('/api/admin/hashs/store')">
                 @csrf
                 <fieldset>
                     <label for="label">Label:<label>

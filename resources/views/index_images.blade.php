@@ -17,20 +17,9 @@
         <div class="top_left_container">
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
-
-        @if ( session('succes') )
-            <div class="alert alert-succes">
-                <h1 class="admin_title">{{ session('succes') }}</h1>
-            </div>
-        @elseif( session('error') )
-            <div class="alert alert-error">
-                <h1 class="admin_title">{{ session('error') }}</h1>
-            </div>
-        @else
-            <h1 class="admin_title">UPDATE / DELETE</h1>
-        @endif
-        
+        <h1 class="admin_title">UPDATE / DELETE</h1>
         <div id="index" class="masonry">
+            <input type="hidden" name="csrftoken" id="csrf-token" value="{{ Session::token() }}" />
         {{--
             @foreach ($images as $image)
                 <fieldset class="miniature">

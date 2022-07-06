@@ -19,7 +19,7 @@
         </div>
         <h1 class="admin_title">NEW LINK</h1>
         <div class="flex"> 
-            <form id="form" onsubmit="return post('/admin/links/store')">
+            <form id="form" onsubmit="return post_add('/api/admin/links/store')">
                 @csrf
                 <div class="masonry">
                     @foreach ($images as $image)

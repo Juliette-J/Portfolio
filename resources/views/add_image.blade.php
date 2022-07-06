@@ -19,7 +19,7 @@
         </div>
         <h1 class="admin_title">NEW IMAGE</h1>
         <div class="card-body">
-            <form id="form" onsubmit="return post('/admin/images/store')">
+            <form id="form" onsubmit="return post_add('/api/admin/images/store')">
                 @csrf
                 <fieldset>
                     </br>
