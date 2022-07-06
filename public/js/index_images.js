@@ -1,15 +1,3 @@
-/*function getToken(name) {
-    let tokenValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const full_token = document.cookie.split(';')[0];
-        const token = full_token.trim();
-        if (token.substring(0, name.length + 1) === (name + '=')) {
-            tokenValue = decodeURIComponent(token.substring(name.length + 1));
-        }
-    }
-    return tokenValue;
-}*/
-
 function createImageFieldset(img) {
     // Parent fieldset
     var new_fieldset = document.createElement('fieldset');
@@ -42,13 +30,6 @@ function createImageFieldset(img) {
             new_form.className = "form";
             new_form.onsubmit = function() {return post_delete(new_img.id)};
             document.getElementById(new_div2.id).appendChild(new_form);
-                /* Third child input (csrf token)
-                var new_input = document.createElement('input');
-                new_input.name = 'csrftoken';
-                new_input.type = 'hidden';
-                new_input.value = getToken('XSRF-TOKEN');
-                console.log(new_input.value);
-                document.getElementById(new_form.id).appendChild(new_input); */
                 // Third child button
                 var new_btn = document.createElement('button');
                 new_btn.type = 'submit';

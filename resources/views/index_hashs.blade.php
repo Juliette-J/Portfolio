@@ -17,10 +17,13 @@
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
         <h1 class="admin_title">DELETE HASHTAG</h1>
-        <div class="masonry">
+        <!-- TOKEN -->
+        <input type="hidden" name="csrftoken" id="csrf-token" value="{{ Session::token() }}" />
+        <div id ="index" class="masonry">
+        {{-- 
             @foreach ($hashtags as $hashtag)
                 <fieldset class="miniature">
-                    <form action="{{ route('hashs.destroy', ['id' => $hashtag->id]) }}" method="POST">
+                    <form id="form" onsubmit="return post_delete('/api/admin/images/store')">
                         @csrf
                         <button type="submit" class="submit">Delete</button>
                     </form>
@@ -35,7 +38,10 @@
                     </div>
                 </fieldset>
             @endforeach
+            --}}
         </div>
+        <script type="text/javascript" src="{{asset('js/post.js')}}"> </script>
+        <script type="text/javascript" src="{{asset('js/index_hashs.js')}}"></script>
     </body>
     </br></br></br>
     <footer>

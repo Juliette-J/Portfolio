@@ -43,7 +43,7 @@ Route::group(['prefix' => 'admin/hashs'],function(){
     /* ADD HASH */
     Route::get('/create',[HashtagController::class, 'create'])->name('hashs.create');
     /* INDEX HASH */
-    Route::get('/', [HashtagController::class, 'index'])->name('hashs.list'); // Listing des hashtags
+    Route::get('/', function() { return view('index_hashs'); })->name('hashs.list'); // Listing des hashtags
 });
 
 Route::group(['prefix' => 'admin/links'],function(){

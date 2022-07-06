@@ -41,9 +41,9 @@ function post_delete(id) {
     document.querySelector('input[name="csrftoken"]')['value'];
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "/api/admin/images/" + id + "/delete");
-    xhr.onload = function () { console.log(this.response); };
+    //xhr.onload = function () { console.log(this.response); };
+    document.getElementById(id + '-all-container').innerHTML='<h2>Deleted!</h2>';
     xhr.send(data);
-    alert('Successfully deleted!');
 
     return false;
 }
