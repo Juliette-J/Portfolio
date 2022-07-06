@@ -48,7 +48,8 @@
                 </fieldset>
             @endforeach --}}
         </div>
-        <script type="text/javascript" src="{{asset('js/index.js')}}"> </script>
+        <script type="text/javascript" src="{{asset('js/index.js')}}"></script>
+        <script type="text/javascript" src="{{asset('js/post.js')}}"> </script>
         </br></br></br>
     </body>
     <footer>

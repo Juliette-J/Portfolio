@@ -17,21 +17,10 @@
         <div class="top_left_container">
             <a href="/admin/images" class="top_left" alt="">Back</a>
         </div>
-
-        @if ( session('succes') )
-            <div class="alert alert-succes">
-                <h1 class="admin_title">{{ session('succes') }}</h1>
-            </div>
-        @elseif( session('error') )
-            <div class="alert alert-error">
-                <h1 class="admin_title">{{ session('error') }}</h1>
-            </div>
-        @else
-            <h1 class="admin_title">UPDATE IMAGE</h1>
-        @endif
+        <h1 class="admin_title">UPDATE IMAGE</h1>
 
         <div class="flex">
-            <form action="{{ route('images.update', ['id' => $image->id]) }}" method="POST">
+            <form id="form" onsubmit="return post_update()" >
                 @csrf
                 <fieldset>
                     <img  src="{{ $image->path }}" id="{{ $image->id }}" class="small_img"/>
@@ -88,6 +77,7 @@
                     <input type="submit" class="submit" value="Send">
                 </fieldset>
             </form>
+            <script type="text/javascript" src="{{asset('js/post.js')}}"> </script>
         </div>
         </br></br></br></br>
     </body>

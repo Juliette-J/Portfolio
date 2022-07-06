@@ -1,3 +1,15 @@
+function getToken(name) {
+    let tokenValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const full_token = document.cookie.split(';')[0];
+        const token = full_token.trim();
+        if (token.substring(0, name.length + 1) === (name + '=')) {
+            tokenValue = decodeURIComponent(token.substring(name.length + 1));
+        }
+    }
+    return tokenValue;
+}
+
 function createImageFieldset(img) {
     // Parent fieldset
     var new_fieldset = document.createElement('fieldset');
@@ -28,14 +40,17 @@ function createImageFieldset(img) {
             var new_form = document.createElement('form');
             new_form.id = new_img.id + '-form';
             new_form.className = "form";
-            //new_form.onsubmit = 'return post("/admin/images/" +  )';
-            new_form.action= "/admin/images/" + new_img.id + "/delete";
-            new_form.method= 'POST';
+            new_form.onsubmit = function() {return post_delete(new_img.id)};
             document.getElementById(new_div2.id).appendChild(new_form);
+                // Third child meta (csrf token)
+                var new_meta = document.createElement('meta');
+                new_meta.name = 'csrf-token';
+                new_meta.content = getToken('XSRF-TOKEN');
+                console.log(new_meta.content);
+                document.getElementById(new_form.id).appendChild(new_meta);
                 // Third child button
                 var new_btn = document.createElement('button');
                 new_btn.type = 'submit';
-                new_btn.id = img.id + '-button';
                 new_btn.className = 'submit';
                 new_btn.textContent = 'Delete';
                 document.getElementById(new_form.id).appendChild(new_btn);

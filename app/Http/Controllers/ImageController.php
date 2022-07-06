@@ -44,9 +44,9 @@ class ImageController extends Controller
     public function update(ImageRequest $request, $id) {
         $image = Image::find($id);
         if($image->fill($request->all())->save()) {
-            return redirect()->route('images.edit', ['id' => $image->id])->with('succes', 'Successfully updated !');
+            return json_encode($image);
         }
-        return redirect()->route('images.edit', ['id' => $image->id])->with('error', 'Not updated !');
+        return 'Not updated !';
     }
 
     public function destroy($id) {
