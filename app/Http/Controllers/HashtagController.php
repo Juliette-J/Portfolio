@@ -37,16 +37,18 @@ class HashtagController extends Controller
         return 'Error...';
     }
 
-    /* Pas utilisées */
+    /* Not used */
+
+    /* 
     public function update(HashtagRequest $request, Hashtag $hashtags) {
         if($hashtags->fill($request->all())->save()) {
             return view('home');
         }
     }
-
     public function show(Hashtag $hash) {
         return $hash;
     }
+    */
 
     
 }

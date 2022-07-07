@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\LinkImageHashs;
 use App\Models\Image;
 use App\Models\Hashtag;
+use App\Models\LinkImageHashs;
 use App\Http\Requests\LinkImageHashsRequest;
 
 class LinkImageHashsController extends Controller
@@ -38,8 +38,9 @@ class LinkImageHashsController extends Controller
         return 'Error...';
     }
     
-    /* Pas utilisées */
-    public function show(LinkImageHashs $link) {
+    /* Not used */
+    
+    /* public function show(LinkImageHashs $link) {
         return $link;
     }
     public function update(LinkImageHashsRequest $request, $id) {
@@ -48,6 +49,6 @@ class LinkImageHashsController extends Controller
             return redirect()->route('home.admin')->with('succes', 'Successfully updated !');
         }
         return redirect()->route('home.admin')->with('error', 'Error...');
-    }
+    } */
 }
 

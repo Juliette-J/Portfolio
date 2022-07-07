@@ -41,7 +41,7 @@ function createImageFieldset(hash, images) {
         })
 }
 
-/* Galery */
+/* Fetch galery */
 function fetchOnURL(url) {
     fetch(url)
         .then(response => {

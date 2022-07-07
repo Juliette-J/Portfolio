@@ -57,9 +57,10 @@ class ImageController extends Controller
         return 'Error...';
     }
     
-    /* Pas utilisée */
-    public function show(Image $image) {
+    /* Not used */
+
+    /* public function show(Image $image) {
         return $image;
-    }
+    } */
 }
 

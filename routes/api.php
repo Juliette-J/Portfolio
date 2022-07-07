@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\HashtagController;
-use App\Http\Controllers\ImageController;
-use App\Http\Controllers\LinkImageHashsController;
-use App\Http\Controllers\ViewController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ViewController;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\HashtagController;
+use App\Http\Controllers\LinkImageHashsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,16 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::middleware('auth:auth')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:auth')->get('/user', function (Request $request) { return $request->user(); });
 
 Route::get('/portfolio', [ViewController::class, 'index'])->name('portfolio');
 
-
-
-
+/* ADMIN */
 Route::group(['prefix' => 'admin/images'],function(){
     /* ADD IMAGE */
     Route::post('/store', [ImageController::class, "store"])->name('images.store'); // Ajout d'image

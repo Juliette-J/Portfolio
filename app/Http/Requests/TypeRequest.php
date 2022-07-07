@@ -8,11 +8,9 @@ class TypeRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
-     *
      * @return bool
      */
-    public function authorize()
-    {
+    public function authorize() {
         return true;
     }
 
@@ -20,8 +18,7 @@ class TypeRequest extends FormRequest
      * Traduction des champs
      * @return array
      */
-    public function attributes()
-    {
+    public function attributes(){
         return [];
     }
 
@@ -29,18 +26,15 @@ class TypeRequest extends FormRequest
      * Messages personnalisé si besoin
      * @return array
      */
-    public function messages()
-    {
+    public function messages(){
         return [];
     }
 
     /**
      * Get the validation rules that apply to the request.
-     *
      * @return array<string, mixed>
      */
-    public function rules()
-    {
+    public function rules() {
         return [
             'name' => 'required|string|unique:types,name'
         ];

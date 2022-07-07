@@ -8,10 +8,8 @@
 <div class="container">
     <div class="card">
         <h2>Confirm Password</h2>
-        </br>
         <div class="card-body">
             <p>Please confirm your password before continuing.</p>
-
             <form method="POST" action="{{ route('password.confirm') }}">
                 @csrf
                 <fieldset>
@@ -22,7 +20,6 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-
                     <button type="submit" class="btn btn-primary">Confirm Password :</button>
                     @if (Route::has('password.request'))
                         <a class="btn btn-link" href="{{ route('password.request') }}">Forgot Your Password?</a>

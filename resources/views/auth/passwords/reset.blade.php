@@ -8,7 +8,6 @@
 <div class="container">
     <div class="card">
         <h2>Reset Password</h2>
-        </br>
         <div class="card-body">
             <form method="POST" action="{{ route('password.update') }}">
                 @csrf
@@ -21,8 +20,6 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                    
-                    
                     <label for="password">Password :</label>
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                     @error('password')
@@ -30,10 +27,8 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-
                     <label for="password-confirm" >Confirm Password :</label>
                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                        
                     <button type="submit" class="btn btn-primary">Reset Password</button>
                 </fieldset>    
             </form>

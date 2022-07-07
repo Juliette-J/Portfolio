@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\HashtagController;
-use App\Http\Controllers\ImageController;
-use App\Http\Controllers\LinkImageHashsController;
-use App\Http\Controllers\LocalizationController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\HashtagController;
+use App\Http\Controllers\LinkImageHashsController;
+use App\Http\Controllers\LocalizationController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,17 +19,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* ADMIN */
-Auth::routes();
-Route::get('/home/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home.admin');
-
 /* LANG */
 Route::get('locale', [LocalizationController::class, 'getLang'])->name('lang.get');
 Route::get('locale/{lang}', [LocalizationController::class, 'setLang'])->name('lang.set');
 
-Route::get('/portfolio', function () {
-    return view('portfolio');
-});
+/* PUBLIC VIEWS */
+Route::get('/portfolio', function () { return view('portfolio'); });
+Route::get('/', function () { return view('welcome'); })->name('welcome');
+
+/* ADMIN */
+Auth::routes();
+Route::get('/home/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home.admin');
 
 Route::group(['prefix' => 'admin/images'],function(){
     /* ADD IMAGE */
@@ -52,8 +53,3 @@ Route::group(['prefix' => 'admin/links'],function(){
     /* INDEX LINK */
     Route::get('/', function() { return view('index_links'); })->name('links.list'); // Listing des links
   });
-
-/* Vue publique */
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');

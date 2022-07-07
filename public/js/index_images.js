@@ -38,7 +38,7 @@ function createImageFieldset(img) {
                 document.getElementById(new_form.id).appendChild(new_btn);
 }
 
-/* Galery */
+/* Fetch galery */
 function fetchOnURL(url) {
     fetch(url)
         .then(response => {

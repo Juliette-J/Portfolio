@@ -1,3 +1,4 @@
+/* Parent */
 function createImageDiv(img) {
     // Parent div
     var new_div = document.createElement('div');
@@ -19,6 +20,7 @@ function createImageDiv(img) {
     document.getElementById(new_div.id).appendChild(new_btn);
 }
 
+/* Modale Image */
 function createModalImageDiv(img) {
     // Parent div
     var new_div = document.createElement('div');
@@ -37,7 +39,27 @@ function createModalImageDiv(img) {
         new_img.className = 'modal-content-img';
         document.getElementById(new_div.id).appendChild(new_img);
 }
+function onClickModalImage() {
+    var images = document.getElementsByClassName("image");
+    for(var j=0; j < images.length; j++) {
+        const image = images.item(j);
+        var modal_1;
+        var span_1;
 
+        image.addEventListener('click', function() {
+            modal_1 = document.getElementById(this.id + "-modal-img");
+            modal_1.style.display="block";
+            document.getElementById(this.id + "-fullsize").src = this.src;
+
+            span_1 = document.getElementById(this.id + "-close-img");
+            span_1.addEventListener('click',function() {
+                modal_1.style.display = "none";
+            });
+        });
+    }
+}
+
+/* Modale Encadré */
 function createModalDescDiv(img) {
     // Parent div
     var new_div = document.createElement('div');
@@ -78,29 +100,6 @@ function createModalDescDiv(img) {
             new_h3_2.textContent = img.desc_fr;
             document.getElementById(new_child_div.id).appendChild(new_h3_2);
 }
-
-/* Modale Image */
-function onClickModalImage() {
-    var images = document.getElementsByClassName("image");
-    for(var j=0; j < images.length; j++) {
-        const image = images.item(j);
-        var modal_1;
-        var span_1;
-
-        image.addEventListener('click', function() {
-            modal_1 = document.getElementById(this.id + "-modal-img");
-            modal_1.style.display="block";
-            document.getElementById(this.id + "-fullsize").src = this.src;
-
-            span_1 = document.getElementById(this.id + "-close-img");
-            span_1.addEventListener('click',function() {
-                modal_1.style.display = "none";
-            });
-        });
-    }
-}
-
-/* Modale Encadré */
 function onClickModalDesc() {
     var buttons = document.getElementsByClassName("button-desc");
     for(var i = 0; i < buttons.length; i++){
@@ -121,7 +120,7 @@ function onClickModalDesc() {
     }
 }
 
-/* Galery */
+/* Fetch galery*/
 function fetchOnURL(url) {
     fetch(url)
         .then(response => {
@@ -143,7 +142,6 @@ function fetchOnURL(url) {
             }
         })
 }
-
 function fetchAllOnURL(requestArray) {
     Promise.all(requestArray.map(hashtag =>
         fetch(`/api/portfolio?hashtag=${hashtag}`)
@@ -203,4 +201,5 @@ for (let index = 0; index < hashs.length; index++) {
     })
 }
 
+/* Default */
 fetchOnURL('/api/portfolio');

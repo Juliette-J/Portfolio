@@ -4,15 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="{{asset('css/welcome.css')}}">
-
+        <title>JJ's Portfolio - New</title>
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Special+Elite&display=swap" rel="stylesheet">  
-
-        <title>JJ's Portfolio - New</title>
+        <!-- Script -->
+        <script type="text/javascript" src="{{asset('js/post.js')}}"> </script>
     </head>
-
     <body class="app_background">
         <div class="top_left_container">
             <a href="/home/admin" class="top_left" alt="">Back</a>
@@ -24,35 +23,21 @@
                 <div class="masonry">
                     @foreach ($images as $image)
                         <fieldset class="miniature">
-                            </br>
                             <input type="radio" name="id_image" value="{{$image->id}}">
                             <label for="{{$image->title}}">{{$image->title}}</label>
-                            </br>
                             <img src="{{ $image->path }}" id="{{ $image->path }}"/>
-                            </br>
-                            @error('{{$image->path}}')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                            </br>
                         </fieldset>
-                        </br>  
                     @endforeach
                 </div>
-                </br></br>
+                </br>
                 <div class="flex">
                     <fieldset>
-                        </br>
                         <label>Link with a reference below:</label>
-                        </br>
                         <fieldset>
                             <ul>
                                 @foreach ($hashtags as $hashtag)
                                     <input type="radio" name="id_hashtag" value="{{$hashtag->id}}"> 
                                     <label for="{{$hashtag->label}}">{{$hashtag->label}}</label>
-                                    </br>
-                                    @error('{{$hashtag->label}}')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                    @enderror
                                     </br>
                                 @endforeach
                             </ul>
@@ -61,11 +46,8 @@
                     </fieldset>
                 </div>
             </form>
-            <script type="text/javascript" src="{{asset('js/post.js')}}"> </script>
         </div>
-        </br></br></br>
     </body>
-
     <footer>
         <div class="footer-block"> Portfolio 2022 - Juliette Jeannin </div>
     </footer>

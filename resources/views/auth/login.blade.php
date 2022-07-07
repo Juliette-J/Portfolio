@@ -13,40 +13,32 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <fieldset>
-                    </br>
                     <label for="email">Email:</label>
                     </br>
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                     @error('email')
-                        </br>
                         <span class="invalid-feedback" role="alert">
                             <h3>{{ $message }}</h3>
                         </span>
                     @enderror
-                    </br></br>
-
+                    </br>
                     <label for="password">Password:</label>
                     </br>
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                    </br></br></br>
-                    
                     @error('password')
-                        </br>
                         <span class="invalid-feedback" role="alert">
                             <h3>{{ $message }}</h3>
                         </span>
                     @enderror
-
                     <div class="btn_login">
                         <button type="submit" class="submit">Go!</button>
                     </div>
-
-                    <!-- <div class="form-check">
+                    {{-- <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                         <label class="form-check-label" for="remember">
                             {{ __('Remember Me') }}
                         </label>
-                    </div> -->
+                    </div> --}}
                 </fieldset>
             </form>
         </div>

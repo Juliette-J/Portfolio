@@ -11,25 +11,21 @@
                 <a href="{{ route('hashs.create') }}" alt="">A hashtag</a>
                 <a href="{{ route('links.create') }}" alt="">A link</a>
             </nav>
-            </br>
         </fieldset>
-        </br>
         <fieldset>
-            <h2>Update | Delete?</h2>
+            <h2>Update|Delete?</h2>
             </br>
             <nav>
                 <a href="{{ route('images.list') }}" alt="">An image</a>
                 <a href="{{ route('hashs.list') }}" alt="">A hashtag</a>
                 <a href="{{ route('links.list') }}" alt="">A link</a>
             </nav>
-            </br>
         </fieldset>
     </div>
     </br>
     <nav>
         <a href="/" class="top_left">See the website</a>
     </nav>
-    </br></br></br></br>
     <footer>
         <div class="footer-block"> Portfolio 2022 - Juliette Jeannin </div>
     </footer>

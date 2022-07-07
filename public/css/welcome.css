@@ -2,6 +2,7 @@ body {
   background-color: #f1f1f1;
   height: 100vh;
   margin: 0;
+  padding-bottom: 30px;
 }
 
 /*** TEXT ***/
@@ -16,11 +17,14 @@ h2 {
   font-family: 'Pangolin', cursive;
   text-align: center;
   font-size: 35px; /* 1.5vw */
-  margin: 10px;
+  margin: 15px;
 }
 h3{
   font-family: 'Pangolin', cursive;
   font-size: 20px;
+}
+input, textarea {
+  margin-bottom: 20px;
 }
 label {
   font-family: 'Special Elite', cursive;
@@ -35,7 +39,34 @@ p {
   padding:0;
 }
 
+.admin_title{
+  color: #f1f1f1;
+}
+.card-body {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /*** FRAMES/CONTANERS ***/
+fieldset {
+  border :rgb(29, 29, 29);
+  box-shadow: 0px 0px 10px rgb(172, 172, 172);
+  background-color: rgb(248, 248, 248);
+  margin : 20px;
+  padding: 25px;
+  width: 280px;
+}
+footer {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+
+  font-family: 'Special Elite', cursive;
+  bottom: 3.5vh;
+  width: 100%;
+}
+
 .app_background{
   height: 100%;
   background-image: url('../storage/images/BG/Plage.jpg');
@@ -44,26 +75,13 @@ p {
   background-size: cover;
   margin: 0;
 }
-.portfolio_background{
-  height: 100%;
-  background-image: url('../storage/images/BG/FondF.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-.bannière{
+.banner{
   color: #f5f5f5;
   background-color: rgb(49, 49, 49);
   width: 90vw;
   margin: auto;
+  margin-bottom: 30px;
   opacity: 0.985;
-}
-fieldset {
-  border :rgb(29, 29, 29);
-  box-shadow: 0px 0px 10px rgb(172, 172, 172);
-  background-color: rgb(248, 248, 248);
-  margin : 20px;
-  width: 280px;
 }
 .flex {
   display: flex;
@@ -74,6 +92,18 @@ fieldset {
 }
 .flex_children {
   margin: 15px;
+}
+.footer-block {
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+
+  border-radius: 30px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px 21px 7px 21px;
+  background-color: rgb(49, 49, 49);
+  box-shadow: 0px 0px 5px rgb(172, 172, 172);
 }
 .masonry {
   -webkit-column-count: 5;
@@ -90,34 +120,16 @@ fieldset {
   column-gap: 1.5em;
   font-size: .85em;
 }
-footer {
-  display: flex;
-  justify-content: center;
-  position: fixed;
-
-  font-family: 'Special Elite', cursive;
-  bottom: 3.5vh;
-  width: 100%;
-}
-.footer-block {
-  text-align: center;
-  color: rgb(255, 255, 255);
-  font-size: 20px;
-
-  border-radius: 30px;
-  margin-left: 10px;
-  margin-right: 10px;
-  padding: 10px 21px 7px 21px;
-  background-color: rgb(49, 49, 49);
-  box-shadow: 0px 0px 5px rgb(172, 172, 172);
+.portfolio_background{
+  height: 100%;
+  background-image: url('../storage/images/BG/FondF.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 /*** BUTTONS/LINKS ***/
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
+
 a {
   font-family: 'Special Elite', cursive;
   font-size: 21px; /* 1vw */
@@ -130,9 +142,6 @@ a {
   background-color: rgb(255, 145, 0);
   box-shadow: 0px 0px 5px rgb(172, 172, 172);
 }
-span {
-  font-family: 'Pangolin', cursive;
-}
 a:hover {
   background-color: rgb(0, 161, 135);
   transition: 0.3s;
@@ -144,7 +153,8 @@ button, .submit {
   box-shadow: 0px 0px 4px rgb(194, 194, 194);
   
   padding: 2px 6px 2px 6px; 
-  margin: 5px;
+  margin: 10px;
+  margin-bottom: 0;
   bottom: 0;
   right: 0;
   border: 0;
@@ -153,13 +163,22 @@ button:hover, .submit:hover, .hash_btn_selected {
   background-color: rgb(233, 233, 233);
   transition: 0.3s;
 }
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+}
+span {
+  font-family: 'Pangolin', cursive;
+  margin: 10px;
+}
+
 .hash_labels {
   display: flex;
   justify-content: center;
 }
-
-
-/*  Top buttons */
+/* Top buttons */
 .top_container{
   justify-content: space-between;
   margin : 15px;
@@ -186,11 +205,10 @@ button:hover, .submit:hover, .hash_btn_selected {
   background-color: rgb(0, 122, 102);
 }
 
-
 /*** IMAGES ***/
 .miniature {
   display: inline-block;
-  padding: 15px;
+  padding: 25px;
   margin: 15px;
   width: 100%;
   box-sizing: border-box;
@@ -201,7 +219,7 @@ button:hover, .submit:hover, .hash_btn_selected {
   max-width:100%;
 }
 .miniature:hover {
-  background-color: #f1f1f1;
+  background-color: #ececec;
   box-shadow: 0px 0px 10px rgb(172, 172, 172);
   transition: 0.3s;
 }
@@ -209,9 +227,8 @@ button:hover, .submit:hover, .hash_btn_selected {
   max-width: 280px;
 }
 
-
 /*** MODALE IMAGE ***/
-/* Modal background */
+/* Background */
 .modal-img {
   display: none;
   position: fixed; 
@@ -224,7 +241,7 @@ button:hover, .submit:hover, .hash_btn_selected {
   overflow: auto; /* scroll */
   background-color: rgba(0,0,0,0.75); /* Black w/ opacity */
 }
-/* Modal content */
+/* Content */
 .modal-content-img {
   margin: auto;
   margin-bottom: 200px;
@@ -265,9 +282,8 @@ button:hover, .submit:hover, .hash_btn_selected {
   cursor: pointer;
 }
 
-
 /*** MODALE ENCADRE ***/
-/* Modal background */
+/* Background */
 .modal-desc {
   display: none;
   position: fixed; 
@@ -279,7 +295,7 @@ button:hover, .submit:hover, .hash_btn_selected {
   height: 90%;
   background-color: rgba(255, 255, 255, 0.98); /* Black w/ opacity */
 }
-/* Modal content */
+/* Content */
 .modal-content-desc {
   margin: 35px;
   display: flex;
@@ -313,20 +329,6 @@ button:hover, .submit:hover, .hash_btn_selected {
   text-decoration: none;
   cursor: pointer;
 }
-
-
-/*** ADMIN ***/
-/* Title */
-.admin_title{
-  color: #f1f1f1;
-}
-/* Textareas */
-.card-body {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
 
 /*** MEDIA QUERIES ***/
 @media(width <= 450px) {
