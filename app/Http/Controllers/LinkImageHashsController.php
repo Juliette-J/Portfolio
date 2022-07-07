@@ -19,7 +19,6 @@ class LinkImageHashsController extends Controller
         $link = new LinkImageHashs();
         $link->id_image = $request->input('id_image');
         $link->id_hashtag = $request->input('id_hashtag');
-        //dd($link);
         if($link->save()) {
             return json_encode($link);
         }
@@ -29,17 +28,14 @@ class LinkImageHashsController extends Controller
     public function index() {
         $images = Image::get(); 
         $links = LinkImageHashs::join('images', 'image_hashs.id_image', 'images.id')->join('hashtags', 'image_hashs.id_hashtag', 'hashtags.id')->select(['image_hashs.id', 'image_hashs.id_image', 'hashtags.label'])->get();
-        return view('index_links', [
-            'images' => $images,
-            'links' => $links
-        ]);
+        return array($images, $links);
     }
 
     public function destroy($id) {
         if(LinkImageHashs::find($id)->delete()) {
-            return redirect()->route('links.list')->with('succes', 'Successfully deleted !');
+            return 'Successfully deleted !';
         }
-        return redirect()->route('links.list')->with('error', 'Error...');
+        return 'Error...';
     }
     
     /* Pas utilisées */

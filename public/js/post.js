@@ -31,7 +31,7 @@ function post_update() {
     return false;
 }
 
-function post_delete(id) {
+function post_delete(id, category) {
     var form = document.getElementById(id + "-form");
     form.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -40,7 +40,7 @@ function post_delete(id) {
     var data = new FormData(form);
     document.querySelector('input[name="csrftoken"]')['value'];
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/api/admin/images/" + id + "/delete");
+    xhr.open("POST", "/api/admin/" + category + "/" + id + "/delete");
     //xhr.onload = function () { console.log(this.response); };
     document.getElementById(id + '-all-container').innerHTML='<h2>Deleted!</h2>';
     xhr.send(data);

@@ -17,7 +17,7 @@ class ImageController extends Controller
     public function store(ImageRequest $request) {
         $image = new Image();
         $image->title = $request->input('title');
-        $image->path = $request->input('path');
+        $image->path = "/storage/images/".$request->input('path');
         $image->date = $request->input('date');
         $image->desc = $request->input('desc');
         $image->desc_fr = $request->input('desc_fr');
@@ -52,9 +52,9 @@ class ImageController extends Controller
     public function destroy($id) {
         LinkImageHashs::where('image_hashs.id_image', $id)->delete();
         if(Image::find($id)->delete()) {
-            return redirect()->route('images.list')->with('succes', 'Successfully deleted !');
+            return 'Successfully deleted !';
         }
-        return redirect()->route('images.list')->with('error', 'Error...');
+        return 'Error...';
     }
     
     /* Pas utilisée */

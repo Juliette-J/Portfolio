@@ -25,11 +25,14 @@ Route::middleware('auth:auth')->get('/user', function (Request $request) {
 
 Route::get('/portfolio', [ViewController::class, 'index'])->name('portfolio');
 
-Route::get('/admin/images', [ImageController::class, 'index']);
+
+
 
 Route::group(['prefix' => 'admin/images'],function(){
     /* ADD IMAGE */
     Route::post('/store', [ImageController::class, "store"])->name('images.store'); // Ajout d'image
+    /* INDEX IMAGE */
+    Route::get('/', [ImageController::class, 'index']);
     /* UPDATE IMAGE */
     Route::post('/{id}/edit', [ImageController::class, 'update'])->name('images.update'); // Envoi du formulaire
     /* DELETE IMAGE */
@@ -39,6 +42,8 @@ Route::group(['prefix' => 'admin/images'],function(){
 Route::group(['prefix' => 'admin/hashs'],function(){
     /* ADD HASH */
     Route::post('/store', [HashtagController::class, 'store'])->name('hashs.store');
+    /* INDEX IMAGE */
+    Route::get('/', [HashtagController::class, 'index']);
     /* DELETE HASH */
     Route::post('/{id}/delete', [HashtagController::class, 'destroy'])->name('hashs.destroy');
 });
@@ -46,6 +51,8 @@ Route::group(['prefix' => 'admin/hashs'],function(){
 Route::group(['prefix' => 'admin/links'],function(){
     /* ADD LINK */
     Route::post('/store', [LinkImageHashsController::class, 'store'])->name('links.store');
+    /* INDEX IMAGE */
+    Route::get('/', [LinkImageHashsController::class, 'index']);
     /* DELETE LINK */
     Route::post('/{id}/delete', [LinkImageHashsController::class, 'destroy'])->name('links.destroy');
 });

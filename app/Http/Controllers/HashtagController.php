@@ -26,18 +26,15 @@ class HashtagController extends Controller
     public function index() {
         $hashtags = Hashtag::get(); 
         $images = Image::join('image_hashs', 'images.id', 'image_hashs.id_image')->join('hashtags', 'image_hashs.id_hashtag', 'hashtags.id')->get();
-        return view('index_hashs', [
-            'hashtags' => $hashtags,
-            'images' => $images
-        ]);
+        return array($hashtags,$images);
     }
 
     public function destroy($id) {
         LinkImageHashs::where('image_hashs.id_hashtag', $id)->delete();
         if(Hashtag::find($id)->delete()) {
-            return redirect()->route('hashs.list')->with('succes', 'Successfully deleted !');
+            return 'Successfully deleted !';
         }
-        return redirect()->route('hashs.list')->with('error', 'Error...');
+        return 'Error...';
     }
 
     /* Pas utilisées */

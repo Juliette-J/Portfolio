@@ -50,7 +50,7 @@ Route::group(['prefix' => 'admin/links'],function(){
     /* ADD LINK */
     Route::get('/create',[LinkImageHashsController::class, 'create'])->name('links.create');
     /* INDEX LINK */
-    Route::get('/', [LinkImageHashsController::class, 'index'])->name('links.list'); // Listing des links
+    Route::get('/', function() { return view('index_links'); })->name('links.list'); // Listing des links
   });
 
 /* Vue publique */

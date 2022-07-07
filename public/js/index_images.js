@@ -28,7 +28,7 @@ function createImageFieldset(img) {
             var new_form = document.createElement('form');
             new_form.id = new_img.id + '-form';
             new_form.className = "form";
-            new_form.onsubmit = function() {return post_delete(new_img.id)};
+            new_form.onsubmit = function() {return post_delete(new_img.id, 'images')};
             document.getElementById(new_div2.id).appendChild(new_form);
                 // Third child button
                 var new_btn = document.createElement('button');

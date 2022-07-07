@@ -1,4 +1,4 @@
-function createImageFieldset(hash) {
+function createImageFieldset(hash, images) {
     // Parent fieldset
     var new_fieldset = document.createElement('fieldset');
     new_fieldset.id = hash.id + '-all-container';
@@ -8,7 +8,7 @@ function createImageFieldset(hash) {
         var new_form = document.createElement('form');
         new_form.id = hash.id + '-form';
         new_form.className = "form";
-        new_form.onsubmit = function() {return post_delete(hash.id)};
+        new_form.onsubmit = function() {return post_delete(hash.id, "hashs")};
         document.getElementById(new_fieldset.id).appendChild(new_form);
             // Second child button
             var new_btn = document.createElement('button');
@@ -23,25 +23,22 @@ function createImageFieldset(hash) {
         // Child p
         var new_p = document.createElement('p');
         new_p.textContent = "Linked images:";
-        document.getElementById(new_fieldset.id).appendChild(new_h2);
+        document.getElementById(new_fieldset.id).appendChild(new_p);
         // Child div
         var new_div = document.createElement('div');
-        new_div.id = img.id + '-buttons-container';
+        new_div.id = hash.id + '-buttons-container';
         new_div.className = "flex";
         document.getElementById(new_fieldset.id).appendChild(new_div);
-            // Second child image
-            /*
-            var new_img = document.createElement('img');
-            new_img.src = img.path;
-            new_img.id = img.id;
-            new_img.className = 'image';
-            document.getElementById(new_div.id).appendChild(new_img);// Second child link
-            var new_link = document.createElement('a');
-            new_link.href = '/admin/images/' + new_img.id + '/edit';
-            new_link.textContent = 'Edit';
-            document.getElementById(new_div2.id).appendChild(new_link);
-            */
-            
+        // Second child images
+        images.forEach((img) => {
+            if(img.id_hashtag == hash.id) {
+                var new_img = document.createElement('img');
+                new_img.src = img.path;
+                new_img.id = img.id;
+                new_img.className = 'image';
+                document.getElementById(new_div.id).appendChild(new_img);
+            }
+        })
 }
 
 /* Galery */
@@ -52,8 +49,8 @@ function fetchOnURL(url) {
                 response.json()
                 .then(data => {
                     console.log(data);
-                    data.forEach((img) => {
-                        createImageFieldset(img);
+                    data[0].forEach((hash) => {
+                        createImageFieldset(hash, data[1]);
                     })
                 })
             } else {
@@ -62,4 +59,4 @@ function fetchOnURL(url) {
         })
 }
 
-fetchOnURL('/api/admin/images');
+fetchOnURL('/api/admin/hashs');
