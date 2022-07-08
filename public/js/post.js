@@ -1,25 +1,22 @@
 function post_add(url) {
-    var form = document.getElementById("form");
-    form.addEventListener('submit', function(e) {
+    $('form').on('submit', function(e) {
         e.preventDefault();
     });
     var data = new FormData(form);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url);
-    //xhr.onload = function () { console.log(this.response); };
     xhr.send(data);
     alert('Successfully sent!');
     return false;
 }
 
 function post_update() {
-    var form = document.getElementById("form");
-    form.addEventListener('submit', function(e) {
+    $('form').on('submit', function(e) {
         e.preventDefault();
     });
     var data = new FormData(form);
     var xhr = new XMLHttpRequest();
-    var img = document.getElementsByClassName('small_img')[0];
+    var img = $(".small_img")[0];
     xhr.open("POST", "/api/admin/images/" + img.id + "/edit");
     xhr.send(data);
     alert('Successfully sent!');
@@ -27,15 +24,14 @@ function post_update() {
 }
 
 function post_delete(id, category) {
-    var form = document.getElementById(id + "-form");
-    form.addEventListener('submit', function(e) {
+    var $form = $('#' + id + '-form');
+    $form.on('submit', function(e) {
         e.preventDefault();
     });
-    var data = new FormData(form);
-    document.querySelector('input[name="csrftoken"]')['value'];
+    var data = new FormData($form[0]);
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "/api/admin/" + category + "/" + id + "/delete");
-    document.getElementById(id + '-all-container').innerHTML='<h2>Deleted!</h2>';
+    $('#' + id + '-all-container').replaceWith("");
     xhr.send(data);
     return false;
 }

@@ -10,7 +10,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Special+Elite&display=swap" rel="stylesheet">  
         <!-- Script -->
-        <script type="text/javascript" src="{{asset('js/portfolio.js')}}"> </script>
+        <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     </head>
     <body class="portfolio_background">
         <nav class="top_container">
@@ -41,6 +41,8 @@
             <button type="button" data-hashtag="Nantes" id="Nantes" class="hash_btn">#Nantes</button>
         </div>
         <div id="galery" class="masonry"></div>
+        <!-- Script -->
+        <script type="text/javascript" src="{{asset('js/portfolio.js')}}"></script>
     </body>
     <footer>
         <div class="footer-block"> Portfolio 2022 - Juliette Jeannin </div>
