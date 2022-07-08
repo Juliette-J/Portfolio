@@ -11,7 +11,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Special+Elite&display=swap" rel="stylesheet">  
         <!-- Script -->
         <script src="{{ asset('js/app.js') }}"></script>
-        {{-- <script type="text/javascript" src="{{asset('js/title.js')}}"> </script> --}}
     </head>
     <body class="portfolio_background">
         <nav class="top_container">
@@ -24,7 +23,9 @@
             </div>
         </nav>
         <fieldset class="banner">
-            <h1>Portfolio</h1>
+            <h1></h1>
+            <!-- Script -->
+            <script type="text/javascript" src="{{asset('js/title.js')}}"> </script>
         </fieldset>
         <nav>
             <a href="/">{{ __("Homepage") }}</a>

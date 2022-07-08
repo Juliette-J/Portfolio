@@ -3,39 +3,39 @@ function createImageFieldset(img) {
     var new_fieldset = document.createElement('fieldset');
     new_fieldset.id = img.id + '-all-container';
     new_fieldset.className = 'miniature';
-    document.getElementById('index').appendChild(new_fieldset);
+    $('#index').append(new_fieldset);
         // Child div (1)
         var new_div = document.createElement('div');
         new_div.id = img.id + '-image-container';
-        document.getElementById(new_fieldset.id).appendChild(new_div);
+        $('#' + new_fieldset.id).append(new_div);
             // Second child image
             var new_img = document.createElement('img');
             new_img.src = img.path;
             new_img.id = img.id;
             new_img.className = 'image';
-            document.getElementById(new_div.id).appendChild(new_img);
+            $('#' + new_div.id).append(new_img);
         // Child div (2)
         var new_div2 = document.createElement('div');
         new_div2.id = img.id + '-buttons-container';
         new_div2.className = "flex";
-        document.getElementById(new_fieldset.id).appendChild(new_div2);
+        $('#' + new_fieldset.id).append(new_div2);
             // Second child link
             var new_link = document.createElement('a');
             new_link.href = '/admin/images/' + new_img.id + '/edit';
             new_link.textContent = 'Edit';
-            document.getElementById(new_div2.id).appendChild(new_link);
+            $('#' + new_div2.id).append(new_link);
             // Second child form
             var new_form = document.createElement('form');
             new_form.id = new_img.id + '-form';
             new_form.className = "form";
             new_form.onsubmit = function() {return post_delete(new_img.id, 'images')};
-            document.getElementById(new_div2.id).appendChild(new_form);
+            $('#' + new_div2.id).append(new_form);
                 // Third child button
                 var new_btn = document.createElement('button');
                 new_btn.type = 'submit';
                 new_btn.className = 'submit';
                 new_btn.textContent = 'Delete';
-                document.getElementById(new_form.id).appendChild(new_btn);
+                $('#' + new_form.id).append(new_btn);
 }
 
 /* Fetch galery */

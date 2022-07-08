@@ -1,4 +1,4 @@
-const h1 = document.querySelector('h1');
+var h1 = document.querySelector('h1');
 const textTitle = 'Portfolio';
 
 let i = 0;

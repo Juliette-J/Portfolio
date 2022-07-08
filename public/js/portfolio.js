@@ -101,7 +101,6 @@ function createModalDescDiv(img) {
 }
 function onClickModalDesc() {
     var $buttons = $(".button-desc");
-    console.log($buttons);
     for(var i = 0; i < $buttons.length; i++){
         const button = $buttons.get(i);
         var $modal_2;
@@ -165,53 +164,19 @@ function fetchAllOnURL(requestArray) {
 }
 
 /* Type */
-/*const links = document.getElementsByClassName('type_link');
-console.log(links);
-for (let index = 0; index < links.length; index++) {
-    const element = links[index];
-    element.addEventListener("click", function(e) {
-        e.preventDefault();
-        document.getElementById('galery').innerHTML="";
-        fetchOnURL('/api/portfolio?type='+e.target.dataset.type)
-    })
-}*/
-
 var $links = $(".type_link");
-console.log($links);
 for(var index = 0; index < $links.length; index++) {
-    const element = $links.get(index);
-    element.addEventListener('click', function(e) {
+    const link = $links.get(index);
+    link.addEventListener('click', function(e) {
         e.preventDefault();
-        $('#galery').replaceWith("");
-        fetchOnURL('/api/portfolio?type='+e.target.dataset.type)
+        $('#galery').html("");
+        console.log(e.target.dataset.type);
+        fetchOnURL('/api/portfolio?type=' + e.target.dataset.type)
     })
 }
 
 /* Hashtags */
- const hashs = document.getElementsByClassName('hash_btn');
-var hashs_selected = [];
-for (let index = 0; index < hashs.length; index++) {
-    const element = hashs[index];
-    element.addEventListener("click", function(e) {
-        e.preventDefault();
-        if(hashs_selected.includes(this.id)){
-            hashs_selected = hashs_selected.filter(hashtag => hashtag !== this.id);
-            this.className="hash_btn";
-        }else{
-            hashs_selected.push(this.id);
-            this.className="hash_btn_selected";
-        }
-
-        document.getElementById('galery').innerHTML="";
-        if(hashs_selected.length > 0) {
-            fetchAllOnURL(hashs_selected);
-        }
-        else {
-            fetchOnURL('/api/portfolio');
-        }
-    })
-} 
-/*const $hashs = $('.hash_btn');
+const $hashs = $('.hash_btn');
 var hashs_selected = [];
 for (let index = 0; index < $hashs.length; index++) {
     const element = $hashs.get(index);
@@ -224,7 +189,7 @@ for (let index = 0; index < $hashs.length; index++) {
             hashs_selected.push(this.id);
             this.className="hash_btn_selected";
         }
-        $('#galery').replaceWith("");
+        $('#galery').html("");
         if(hashs_selected.length > 0) {
             fetchAllOnURL(hashs_selected);
         }
@@ -232,7 +197,7 @@ for (let index = 0; index < $hashs.length; index++) {
             fetchOnURL('/api/portfolio');
         }
     })
-}*/
+}
 
 /* Default */
 fetchOnURL('/api/portfolio');
