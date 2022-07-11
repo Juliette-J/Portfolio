@@ -1,40 +1,36 @@
+function createElmt(tag,attributes) {
+  var el = document.createElement(tag);
+  for(var key in attributes)
+  {
+    el.setAttribute(key,attributes[key]);
+  }
+  return el;
+}
+
 function createImageFieldset(img) {
     // Parent fieldset
-    var new_fieldset = document.createElement('fieldset');
-    new_fieldset.id = img.id + '-all-container';
-    new_fieldset.className = 'miniature';
+    var new_fieldset = createElmt('fieldset', {id: img.id + "-all-container", class: "miniature"});
     $('#index').append(new_fieldset);
         // Child div (1)
-        var new_div = document.createElement('div');
-        new_div.id = img.id + '-image-container';
+        var new_div = createElmt('div', {id: img.id + "-image-container"});
         $('#' + new_fieldset.id).append(new_div);
             // Second child image
-            var new_img = document.createElement('img');
-            new_img.src = img.path;
-            new_img.id = img.id;
-            new_img.className = 'image';
+            var new_img = createElmt('img', {id: img.id, class: "image", src: img.path});
             $('#' + new_div.id).append(new_img);
         // Child div (2)
-        var new_div2 = document.createElement('div');
-        new_div2.id = img.id + '-buttons-container';
-        new_div2.className = "flex";
+        var new_div2 = createElmt('div', {id: img.id + '-buttons-container', class: "flex"});
         $('#' + new_fieldset.id).append(new_div2);
             // Second child link
-            var new_link = document.createElement('a');
-            new_link.href = '/admin/images/' + new_img.id + '/edit';
-            new_link.textContent = 'Edit';
+            var new_link = createElmt('a', {href: '/admin/images/' + new_img.id + '/edit'});
+            new_link.innerHTML = "Edit";
             $('#' + new_div2.id).append(new_link);
             // Second child form
-            var new_form = document.createElement('form');
-            new_form.id = new_img.id + '-form';
-            new_form.className = "form";
+            var new_form = createElmt('form', {id: new_img.id + '-form', class: "form"});
             new_form.onsubmit = function() {return post_delete(new_img.id, 'images')};
             $('#' + new_div2.id).append(new_form);
                 // Third child button
-                var new_btn = document.createElement('button');
-                new_btn.type = 'submit';
-                new_btn.className = 'submit';
-                new_btn.textContent = 'Delete';
+                var new_btn = createElmt('button', {type: "submit", class: "submit"});
+                new_btn.innerHTML = "Delete";
                 $('#' + new_form.id).append(new_btn);
 }
 
