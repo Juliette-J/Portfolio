@@ -132,7 +132,7 @@ footer {
 
 a {
   font-family: 'Special Elite', cursive;
-  font-size: 21px; /* 1vw */
+  font-size: 25px; /* 1vw */
   color: rgb(255, 255, 255);
   text-decoration: none;
 
@@ -148,7 +148,7 @@ a:hover {
 }
 button, .submit {
   font-family: 'Pangolin', cursive;
-  font-size: 18px;
+  font-size: 21px;
   background-color: rgb(247, 247, 247);
   box-shadow: 0px 0px 4px rgb(194, 194, 194);
   
@@ -177,6 +177,9 @@ span {
 .hash_labels {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  width: 90vw;
+  margin: auto;
 }
 /* Top buttons */
 .top_container{

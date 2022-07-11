@@ -7,6 +7,15 @@ function createElmt(tag,attributes) {
     return el;
 }
 
+/* Nav */
+function createBtn(hash) {
+    console.log('OK');
+    var new_btn = createElmt('button', {class: hash.label, type: 'button'});
+    new_btn.innerHTML = '#' + hash.label;
+    new_btn.dataset.type = hash.label;
+    $('#nav_btns').append(new_btn);
+}
+
 /* Parent */
 function createImageDiv(img) {
     // Parent div
@@ -111,7 +120,10 @@ function fetchOnURL(url) {
             if(response.ok) {
                 response.json()
                 .then(data => {
-                    data.forEach((img) => {
+                    data[0].forEach((hash) => {
+                        createBtn(hash);
+                    })
+                    data[1].forEach((img) => {
                         if(!$('#' + img.id + '-container')[0]) {
                             createImageDiv(img);
                             createModalImageDiv(img);
@@ -133,7 +145,11 @@ function fetchAllOnURL(requestArray) {
             if(response.ok) {
                 response.json()
                 .then(data => {
-                    data.forEach((img) => {
+                    console.log(data);
+                    data[0].forEach((hash) => {
+                        createBtn(hash);
+                    })
+                    data[1].forEach((img) => {
                         if(!$('#' + img.id + '-container')[0]) { //
                             createImageDiv(img);
                             createModalImageDiv(img);

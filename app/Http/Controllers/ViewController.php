@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hashtag;
 use App\Models\Image;
 use App\Models\LinkImageHashs;
 use Illuminate\Http\Request;
@@ -9,6 +10,7 @@ use Illuminate\Http\Request;
 class ViewController extends Controller
 {   
     public function index(Request $request) {
+        $hashtags = Hashtag::orderBy('label', 'ASC')->get(); 
         $image_hashs_query = LinkImageHashs::query();
         $image_query = Image::query();
 
@@ -18,13 +20,13 @@ class ViewController extends Controller
             if($request->has('type')) {
                 $image_hashs_query->join('types', 'images.id_type', 'types.id')->select('images.*')->where('types.slug', $request->get('type'));
             }
-            return $image_hashs_query->get();
+            return array($hashtags, $image_hashs_query->get());
         }
 
         if($request->has('type')) {
             $image_query->join('types', 'images.id_type', 'types.id')
             ->where('types.slug', $request->get('type'))->select('images.*');
         }
-        return $image_query->get();
+        return array($hashtags, $image_query->get());
     }
 }

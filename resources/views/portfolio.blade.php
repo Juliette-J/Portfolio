@@ -10,7 +10,9 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Special+Elite&display=swap" rel="stylesheet">  
         <!-- Script -->
+        <script src="{{ asset('js/app.js') }}"></script>
         <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script type="text/javascript" src="{{asset('js/portfolio.js')}}"></script>
     </head>
     <body class="portfolio_background">
         <nav class="top_container">
@@ -33,16 +35,8 @@
             </br>
             <a href="/portfolio">{{ __("Back") }}</a>
         </nav>
-        <div class="hash_labels">
-            <button type="button" data-hashtag="ESIPE" id="ESIPE" class="hash_btn">#ESIPE</button>
-            <button type="button" data-hashtag="IMAC" id="IMAC" class="hash_btn">#IMAC</button>
-            <button type="button" data-hashtag="Paris" id="Paris" class="hash_btn">#Paris</button>
-            <button type="button" data-hashtag="Plage" id="Plage" class="hash_btn">#Plage</button>
-            <button type="button" data-hashtag="Nantes" id="Nantes" class="hash_btn">#Nantes</button>
-        </div>
+        <div id="nav_btns" class="hash_labels"></div>
         <div id="galery" class="masonry"></div>
-        <!-- Script -->
-        <script type="text/javascript" src="{{asset('js/portfolio.js')}}"></script>
     </body>
     <footer>
         <div class="footer-block"> Portfolio 2022 - Juliette Jeannin </div>
