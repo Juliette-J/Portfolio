@@ -10,7 +10,7 @@ use App\Http\Requests\ImageRequest;
 class ImageController extends Controller
 {
     public function create() {
-        $types = Type::get();
+        $types = Type::orderBy('name')->get();
         return view('add_image', ['types' => $types]);
     }
 
@@ -29,7 +29,7 @@ class ImageController extends Controller
     }
 
     public function index() {
-        return Image::get();
+        return Image::orderBy('title')->get();
     }
 
     public function edit($id) {

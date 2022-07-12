@@ -25,8 +25,8 @@ class HashtagController extends Controller
     }
 
     public function index() {
-        $hashtags = Hashtag::get(); 
-        $images = Image::join('image_hashs', 'images.id', 'image_hashs.id_image')->join('hashtags', 'image_hashs.id_hashtag', 'hashtags.id')->get();
+        $hashtags = Hashtag::orderBy('label')->get(); 
+        $images = Image::join('image_hashs', 'images.id', 'image_hashs.id_image')->join('hashtags', 'image_hashs.id_hashtag', 'hashtags.id')->orderBy('title')->get();
         return array($hashtags,$images);
     }
 

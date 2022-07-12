@@ -5,7 +5,6 @@
     <div class="card-body">
         <fieldset>
             <h2>Add something?</h2>
-            </br>
             <nav>
                 <a href="{{ route('images.create') }}" alt="">An image</a>
                 <a href="{{ route('hashs.create') }}" alt="">A hashtag</a>
@@ -14,7 +13,6 @@
         </fieldset>
         <fieldset>
             <h2>Update|Delete?</h2>
-            </br>
             <nav>
                 <a href="{{ route('images.list') }}" alt="">An image</a>
                 <a href="{{ route('hashs.list') }}" alt="">A hashtag</a>
@@ -22,7 +20,6 @@
             </nav>
         </fieldset>
     </div>
-    </br>
     <nav>
         <a href="/" class="top_left">See the website</a>
     </nav>

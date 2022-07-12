@@ -12,14 +12,16 @@
         <!-- CSRF Token -->
         <input type="hidden" name="csrftoken" id="csrf-token" value="{{ Session::token() }}" />
         <!-- Scripts -->
-        <script type="text/javascript" src="{{asset('js/post.js')}}"> </script>
+        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script type="text/javascript" src="{{asset('js/post.js')}}"></script>
         <script type="text/javascript" src="{{asset('js/index_images.js')}}"></script>
     </head>
     <body class="app_background">
         <div class="top_left_container">
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
-        <h1 class="admin_title">UPDATE / DELETE</h1>
+        <h1>UPDATE / DELETE</h1>
         <div id="index" class="masonry"></div>
     </body>
     <footer>

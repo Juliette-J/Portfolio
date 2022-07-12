@@ -10,8 +10,8 @@ use App\Http\Requests\LinkImageHashsRequest;
 class LinkImageHashsController extends Controller
 {
     public function create() {
-        $images = Image::get();
-        $hashtags = Hashtag::get();
+        $images = Image::orderBy('title')->get();
+        $hashtags = Hashtag::orderBy('label')->get();
         return view('add_link', ['images' => $images, 'hashtags' => $hashtags]);
     }
 
@@ -26,8 +26,8 @@ class LinkImageHashsController extends Controller
     }
 
     public function index() {
-        $images = Image::get(); 
-        $links = LinkImageHashs::join('images', 'image_hashs.id_image', 'images.id')->join('hashtags', 'image_hashs.id_hashtag', 'hashtags.id')->select(['image_hashs.id', 'image_hashs.id_image', 'hashtags.label'])->get();
+        $images = Image::orderBy('title')->get(); 
+        $links = LinkImageHashs::join('images', 'image_hashs.id_image', 'images.id')->join('hashtags', 'image_hashs.id_hashtag', 'hashtags.id')->select(['image_hashs.id', 'image_hashs.id_image', 'hashtags.label'])->orderBy('hashtags.label')->get();
         return array($images, $links);
     }
 

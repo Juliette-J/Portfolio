@@ -10,13 +10,15 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Special+Elite&display=swap" rel="stylesheet">  
         <!-- Script -->
-        <script type="text/javascript" src="{{asset('js/post.js')}}"> </script>
+        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script type="text/javascript" src="{{asset('js/post.js')}}"></script>
     </head>
     <body class="app_background">
         <div class="top_left_container">
             <a href="/home/admin" class="top_left" alt="">Back</a>
         </div>
-        <h1 class="admin_title">NEW LINK</h1>
+        <h1>NEW LINK</h1>
         <div class="flex"> 
             <form id="form" onsubmit="return post_add('/api/admin/links/store')">
                 @csrf
