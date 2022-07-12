@@ -12,5 +12,5 @@ class Hashtag extends Model
     protected $primarykey = "id";
     const IMAC = "IMAC";
     
-    protected $fillable = ['label'];
+    protected $fillable = ['label', 'label_fr'];
 }

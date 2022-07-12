@@ -12,7 +12,6 @@
         <!-- Script -->
         <script src="{{ asset('js/app.js') }}"></script>
         <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script type="text/javascript" src="{{asset('js/portfolio.js')}}"></script>
     </head>
     <body class="portfolio_background">
         <nav class="top_container">
@@ -37,6 +36,8 @@
         </nav>
         <div id="nav_btns" class="hash_labels"></div>
         <div id="galery" class="masonry"></div>
+        <!-- Script -->
+        <script type="text/javascript" src="{{asset('js/portfolio.js')}}"></script>
     </body>
     <footer>
         <div class="footer-block"> Portfolio 2022 - Juliette Jeannin </div>

@@ -17,6 +17,7 @@ class HashtagController extends Controller
     public function store(HashtagRequest $request) {
         $hashtag = new Hashtag();
         $hashtag->label = $request->input('label');
+        $hashtag->label_fr = $request->input('label_fr');
         if($hashtag->save()) {
             return json_encode($hashtag);
         }

@@ -36,7 +36,8 @@ class HashtagRequest extends FormRequest
      */
     public function rules() {
         return [
-            'label' => 'required|string|unique:hashtags,label'
+            'label' => 'required|string|unique:hashtags,label',
+            'label_fr' => 'required|string|unique:hashtags,label_fr'
         ];
     }
 }

@@ -18,7 +18,7 @@ For this project, I use :
 | id          | id          | id          | id          |
 | title       | label       | name        | id_image    |
 | path        | (timestamp) | (timestamp) | id_hashtag  |
-| id_type     |             |             | (timestamp) |
+| id_type     | label_fr    |             | (timestamp) |
 | date        |
 | desc        |
 | desc_fr     |

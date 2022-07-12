@@ -1,18 +1,21 @@
 function createElmt(tag,attributes) {
     var el = document.createElement(tag);
-    for(var key in attributes)
-    {
+    for(var key in attributes){
       el.setAttribute(key,attributes[key]);
     }
     return el;
 }
 
 /* Nav */
-function createBtn(hash) {
-    console.log('OK');
-    var new_btn = createElmt('button', {class: hash.label, type: 'button'});
-    new_btn.innerHTML = '#' + hash.label;
+function createBtn(hash, $lang) {
+    var new_btn = createElmt('button', {id: hash.label, class: 'hash_btn', type: 'button'});
     new_btn.dataset.type = hash.label;
+    if($lang=='en') {
+        new_btn.innerHTML = '#' + hash.label;
+    }
+    else {
+        new_btn.innerHTML = '#' + hash.label_fr;
+    }
     $('#nav_btns').append(new_btn);
 }
 
@@ -63,7 +66,7 @@ function onClickModalImage() {
 }
 
 /* Modale Encadré */
-function createModalDescDiv(img) {
+function createModalDescDiv(img, $lang) {
     // Parent div
     var new_div = createElmt('div', {id: img.id + '-button-modal-desc', class: 'modal-desc'});
     $('#galery').append(new_div);
@@ -85,14 +88,16 @@ function createModalDescDiv(img) {
             var new_p = createElmt('p', {});
             new_p.innerHTML = img.date;
             $('#' + new_child_div.id).append(new_p);
-            // Second child h3 (1)
-            var new_h3_1 = createElmt('h3');
-            new_h3_1.innerHTML = img.desc;
-            $('#' + new_child_div.id).append(new_h3_1);
-            // Second child h3 (2)
-            var new_h3_2 = createElmt('h3');
-            new_h3_2.innerHTML = img.desc_fr;
-            $('#' + new_child_div.id).append(new_h3_2);
+            // Second child h3
+            var new_h3 = createElmt('h3');
+            if($lang=='en') {
+                new_h3.innerHTML = img.desc;
+            }
+            else {
+                new_h3.innerHTML = img.desc_fr;
+            }
+            $('#' + new_child_div.id).append(new_h3);
+            
 }
 function onClickModalDesc() {
     var $buttons = $(".button-desc");
@@ -120,15 +125,13 @@ function fetchOnURL(url) {
             if(response.ok) {
                 response.json()
                 .then(data => {
-                    data[0].forEach((hash) => {
-                        createBtn(hash);
-                    })
+                    var $lang = $('html')[0].lang;
                     data[1].forEach((img) => {
                         if(!$('#' + img.id + '-container')[0]) {
                             createImageDiv(img);
                             createModalImageDiv(img);
                             onClickModalImage();
-                            createModalDescDiv(img);
+                            createModalDescDiv(img, $lang);
                             onClickModalDesc();
                         }
                     })
@@ -145,10 +148,7 @@ function fetchAllOnURL(requestArray) {
             if(response.ok) {
                 response.json()
                 .then(data => {
-                    console.log(data);
-                    data[0].forEach((hash) => {
-                        createBtn(hash);
-                    })
+                    var $lang = $('html')[0].lang;
                     data[1].forEach((img) => {
                         if(!$('#' + img.id + '-container')[0]) { //
                             createImageDiv(img);
@@ -165,41 +165,53 @@ function fetchAllOnURL(requestArray) {
     })))
 }
 
-/* Type */
-var $links = $(".type_link");
-for(var index = 0; index < $links.length; index++) {
-    const link = $links.get(index);
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        $('#galery').html("");
-        console.log(e.target.dataset.type);
-        fetchOnURL('/api/portfolio?type=' + e.target.dataset.type)
-    })
-}
-
-/* Hashtags */
-const $hashs = $('.hash_btn');
 var hashs_selected = [];
-for (let index = 0; index < $hashs.length; index++) {
-    const element = $hashs.get(index);
-    element.addEventListener("click", function(e) {
-        e.preventDefault();
-        if(hashs_selected.includes(this.id)){
-            hashs_selected = hashs_selected.filter(hashtag => hashtag !== this.id);
-            this.className="hash_btn";
-        }else{
-            hashs_selected.push(this.id);
-            this.className="hash_btn_selected";
-        }
-        $('#galery').html("");
-        if(hashs_selected.length > 0) {
-            fetchAllOnURL(hashs_selected);
-        }
-        else {
-            fetchOnURL('/api/portfolio');
+fetch('/api/portfolio')
+    .then(response => {
+        if(response.ok) {response.json()
+            .then(data => {
+                /* Hash buttons */
+                var $lang = $('html')[0].lang;
+                data[0].forEach((hash) => {
+                    createBtn(hash, $lang);
+                })
+            
+                /* Types */
+                var $links = $(".type_link");
+                for(var index = 0; index < $links.length; index++) {
+                    const link = $links.get(index);
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        $('#galery').html("");
+                        fetchOnURL('/api/portfolio?type=' + e.target.dataset.type)
+                    })
+                }
+                
+                /* Hashtags */
+                const $hashs = $('.hash_btn');
+                for (let index = 0; index < $hashs.length; index++) {
+                    const element = $hashs.get(index);
+                    element.addEventListener("click", function(e) {
+                        e.preventDefault();
+                        if(hashs_selected.includes(this.id)){
+                            hashs_selected = hashs_selected.filter(hashtag => hashtag !== this.id);
+                            this.className="hash_btn";
+                        }else{
+                            hashs_selected.push(this.id);
+                            this.className="hash_btn_selected";
+                        }
+                        $('#galery').html("");
+                        if(hashs_selected.length > 0) {
+                            fetchAllOnURL(hashs_selected);
+                        }
+                        else {
+                            fetchOnURL('/api/portfolio');
+                        }
+                    })
+                } 
+            })    
         }
     })
-}
 
 /* Default */
 fetchOnURL('/api/portfolio');
