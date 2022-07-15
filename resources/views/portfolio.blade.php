@@ -38,6 +38,7 @@
         <div id="galery" class="masonry"></div>
         <!-- Script -->
         <script type="text/javascript" src="{{asset('js/portfolio.js')}}"></script>
+        </br></br></br>
     </body>
     <footer>
         <div class="footer-block"> Portfolio 2022 - Juliette Jeannin </div>

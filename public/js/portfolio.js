@@ -24,13 +24,16 @@ function createImageDiv(img) {
     // Parent div
     var new_div = createElmt('div', {id: img.id + '-container', class: 'miniature'});
     $('#galery').append(new_div);
-    // Child image
-    var new_img = createElmt('img', {id: img.id, class: 'image', src: img.path});
-    $('#' + new_div.id).append(new_img);
-    // Child button
-    var new_btn = createElmt('button', {id: img.id + '-button', class: 'button-desc', type: 'button'});
-    new_btn.innerHTML = '+';
-    $('#' + new_div.id).append(new_btn);
+        // Child image
+        var new_img = createElmt('img', {id: img.id, class: 'image', src: img.path});
+        $('#' + new_div.id).append(new_img);
+        // Child div
+        var new_div2 = createElmt('div', {id: img.id + '-flex', class: 'flex-btn'});
+        $('#' + new_div.id).append(new_div2);
+            // Sencond child button
+            var new_btn = createElmt('button', {id: img.id + '-button', class: 'button-desc', type: 'button'});
+            new_btn.innerHTML = 'i';
+            $('#' + new_div2.id).append(new_btn);
 }
 
 /* Modale Image */

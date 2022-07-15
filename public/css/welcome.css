@@ -99,6 +99,10 @@ footer {
   align-items: flex-start;
   padding: 15px;
 }
+.flex-btn {
+  display: flex;
+  justify-content: flex-end;
+}
 .flex_children {
   margin: 15px;
 }
@@ -152,7 +156,7 @@ a:hover {
 }
 button, .submit {
   font-family: 'Pangolin', cursive;
-  font-size: 21px;
+  font-size: 19px;
   border: 0;
   background-color: rgb(247, 247, 247);
   box-shadow: 0px 0px 5px rgb(194, 194, 194);
@@ -161,8 +165,9 @@ button, .submit {
   margin-bottom: 0;
   padding: 2px 6px 2px 6px;
 }
-button:hover, .submit:hover, .hash_btn_selected {
-  background-color: rgb(233, 233, 233);
+button:hover, .submit:hover,.hash_btn:hover, .hash_btn_selected  {
+  background-color: rgb(0, 161, 135);
+  color: #f1f1f1;
   transition: 0.3s;
 }
 nav {
@@ -176,6 +181,18 @@ span {
   margin: 10px;
 }
 
+.button-desc {
+  background-color: rgb(0, 161, 135); 
+  font-family: 'Special Elite', cursive;
+  color: #f1f1f1;
+  width: 28px;
+  height: 28px;
+  padding-top:5px;
+  border-radius: 50%;
+}
+.button-desc:hover, .button-desc:focus {
+  background-color: rgb(49, 49, 49);
+}
 .hash_labels {
   display: flex;
   justify-content: center;
@@ -183,6 +200,7 @@ span {
   margin: auto;
   width: 90vw;
 }
+
 /* Top buttons */
 .top_container{
   justify-content: space-between;
@@ -213,7 +231,7 @@ span {
 /*** IMAGES ***/
 .miniature {
   display: inline-block;
-  padding: 25px;
+  padding: 15px;
   margin: 15px;
   width: 100%;
   box-sizing: border-box;
@@ -224,7 +242,7 @@ span {
   max-width:100%;
 }
 .miniature:hover {
-  background-color: #ececec;
+  background-color: rgb(248, 248, 248, 0.25);
   box-shadow: 0px 0px 10px rgb(172, 172, 172);
   transition: 0.3s;
 }
@@ -250,10 +268,9 @@ span {
 .modal-content-img {
   display: flex;
   margin: auto;
-  margin-bottom: 200px;
-  padding: 35px;
+  padding-bottom: 50px;
   max-width: 80%;
-  max-height: none;
+  max-height: 85%;
 }
 /* Animation */
 .modal-content-img {  
@@ -293,11 +310,11 @@ span {
   display: none;
   position: fixed; 
   z-index: 1; /* Sit on top */
-  padding-top: 10px;
-  top: 50px;
-  left: 50px;
+  padding: 15px;
+  top: 0;
+  left: 0;
   width: 350px;
-  height: 90%;
+  height: 100%;
   background-color: rgba(255, 255, 255, 0.98);
 }
 /* Content */
@@ -307,6 +324,14 @@ span {
   margin: 35px;
   max-width: 85%;
 }
+.modal-content-desc img {
+  margin-bottom: 30px;
+  max-width: 80%;
+}
+.img-desc {
+  max-width: 150px;
+  max-height: none;
+}
 /* Animation */
 .modal-content-desc {  
   -webkit-animation-name: zoom;
@@ -314,10 +339,7 @@ span {
   animation-name: zoom;
   animation-duration: 0.4s;
 }
-.img-desc {
-  max-width: 150px;
-  max-height: none;
-}
+
 /* Close Button */
 .close-desc {
   position: absolute;
