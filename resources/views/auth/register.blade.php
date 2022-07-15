@@ -26,6 +26,7 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
+                    </br>
                     <label for="password" >Password :</label>
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                     @error('password')
@@ -33,6 +34,7 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
+                    </br>
                     <label for="password-confirm" >Confirm Password :</label>
                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                     <button type="submit" class="btn btn-primary">Register</button>

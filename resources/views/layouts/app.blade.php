@@ -25,10 +25,11 @@
                 @endif
 
                     @if (Route::has('register'))
+                    </br>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="top_left" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
-                @endif --}}
+                @endif --}} 
             @else
                 <div class="top_left_container">
                     <a class="top_left" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log Out</a>
